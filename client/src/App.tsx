@@ -1,24 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import HomePageRoutes from './HomePage/HomePageRoutes';
+import AboutMeRoutes from './AboutMePage/AboutMeRoutes';
+import { Routes, Route } from "react-router-dom";
+import { useState, createContext } from "react";
+import './App.css';
+
+export const HomePageVisibilityContext = createContext<React.Dispatch<
+  React.SetStateAction<boolean>
+> | null>(null);
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [homePageVisibility, setHomePageVisibility] = useState(true);
+  console.log(homePageVisibility);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>CARPARK APP</h1>
-    </>
-  )
+    <HomePageVisibilityContext.Provider value={setHomePageVisibility}>
+      <Routes>
+        {homePageVisibility ? (
+          <Route path="/" element={<HomePageRoutes/>} />
+        ) : (
+          <Route path="/AboutMe/*" element={<AboutMeRoutes />} />
+        )}
+      </Routes> 
+    </HomePageVisibilityContext.Provider>
+  );
 }
 
 export default App
