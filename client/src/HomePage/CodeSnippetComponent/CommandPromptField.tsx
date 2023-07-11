@@ -1,8 +1,8 @@
-import ArrowIcon from '../assets/icons/ArrowIcon.svg'
+import ArrowIcon from '../../assets/icons/ArrowIcon.svg'
 import {useState} from 'react';
 import { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
-import { HomePageVisibilityContext } from "../../src/App";
+import { HomePageVisibilityContext } from "../../App";
 
 export default function CommandPromptField(): JSX.Element {
 
@@ -30,7 +30,6 @@ export default function CommandPromptField(): JSX.Element {
 
     };
     
-    console.log("command: ", command);
     return  (
         <div>
             <form className="flex flex-row gap-4" onSubmit={handleSubmit}>
@@ -44,7 +43,7 @@ export default function CommandPromptField(): JSX.Element {
                 <button
                     name="submit"
                     type="submit"
-                    className="btn btn-secondary btn-square"
+                    className="btn btn-secondary btn-square btn-md"
                 >
                     <img src={ArrowIcon} alt="ArrowIcon"></img>
                 </button>
