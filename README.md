@@ -1,3 +1,3 @@
-# sgCarparks
+# ResumeUI
 
-App for all carpark needs!
+Web UI for my resume, CV and relevant documents! 
