@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { TypeWriterProps } from '../@types/typeWriter';
 
-export default function TypeWriter({ appendClass, roles, prefix }: TypeWriterProps) {
+export default function HomeTypeWriter({ appendClass, roles, prefix }: TypeWriterProps) {
     // Outer container base class + append custom class
     let className = "flex flex-col gap-4";
     if (appendClass) className += " " + appendClass;
@@ -51,7 +51,7 @@ export default function TypeWriter({ appendClass, roles, prefix }: TypeWriterPro
 
     return (
         <div className={className}>
-            <div className="text-2xl md:text-6xl text-center mx-auto">
+            <div className=" animate-bounce text-2xl md:text-6xl text-center mx-auto">
                 Gregory <span className="text-accent font-bold">Foo</span>
             </div>
             <div className="flex gap-2 text-lg md:text-4xl mx-auto">

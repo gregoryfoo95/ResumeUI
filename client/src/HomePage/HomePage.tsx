@@ -1,6 +1,6 @@
-import CodeSnippetPage from "./CodeSnippetComponent/CodeSnippet";
+import CodeSnippetPage from "./CodeSnippetComponent/CodeSnippetPage";
 import CommandPromptField from "./CodeSnippetComponent/CommandPromptField";
-import TypeWriter from "./TypeWriter";
+import HomeTypeWriter from "./HomeTypeWriter";
 
 export default function HomePage(): JSX.Element {
     const roles = [
@@ -20,7 +20,7 @@ export default function HomePage(): JSX.Element {
 
     return  (
         <div className="flex flex-col gap-4">
-            <TypeWriter appendClass="" roles={roles} prefix="" />
+            <HomeTypeWriter appendClass="" roles={roles} prefix="" />
             <div className="mockup-code h-auto w-full text-left ">
                 <CodeSnippetPage/>
                 <div className="px-4 py-4">

@@ -1,11 +1,11 @@
-export default class codeComponent {
+export default class codeSnippet {
   code: string;
-  color: string;
   prefix: string;
+  color: string;
 
-  constructor(code: string, color: string, prefix: string) {
+  constructor(code: string, prefix: string, color: string) {
     this.code = code;
-    this.color = color;
     this.prefix = prefix;
+    this.color = color;
   }
 }

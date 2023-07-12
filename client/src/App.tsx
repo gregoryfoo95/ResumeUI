@@ -16,7 +16,7 @@ function App() {
     <HomePageVisibilityContext.Provider value={setHomePageVisibility}>
       <Routes>
         {homePageVisibility ? (
-          <Route path="/" element={<HomePageRoutes/>} />
+          <Route path="/*" element={<HomePageRoutes/>} />
         ) : (
           <Route path="/AboutMe/*" element={<AboutMeRoutes />} />
         )}
