@@ -39,7 +39,7 @@ function TypeWriter({ code, prefix, color }: { code: string; prefix: string; col
       setCurrentText(prevText => {
         const nextText = prevText + code[currentIndex-1];
 
-        if (currentIndex === code.lengthi) {
+        if (currentIndex === code.length) {
             clearInterval(interval);
         }
         console.log(currentIndex);
