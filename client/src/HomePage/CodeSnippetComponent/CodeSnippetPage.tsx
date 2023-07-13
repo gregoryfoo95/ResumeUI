@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-import codeSnippet from "../../@classes/codeSnippet";
-export default function CodeSnippetPage(): JSX.Element {
-  const codeBlock = [
-    new codeSnippet('npm i hackGregResume', '$ ', ''),
-    new codeSnippet('installing in C://User/Downloads...', '> ', 'text-warning'),
-    new codeSnippet('installation complete', '> ', 'text-success'),
-    new codeSnippet('Run program? (y/n)', '> ', ''),
-  ];
+import { codeBlockProps } from '../../@types/codeBlock';
+type Props = {
+  codeBlock: codeBlockProps[],
+  setCodeBlock: React.Dispatch<React.SetStateAction<codeBlockProps[]>>
+}
+export default function CodeSnippetPage({codeBlock, setCodeBlock}: Props): JSX.Element {
+  
 
   const [currentLine, setCurrentLine] = useState(0);
 
@@ -14,11 +13,11 @@ export default function CodeSnippetPage(): JSX.Element {
     if (currentLine < codeBlock.length) {
       const timeout = setTimeout(() => {
         setCurrentLine(prevLine => prevLine + 1);
-      }, codeBlock[currentLine].code.length * 50);
+      }, codeBlock[currentLine].code.length * 30);
   
       return () => clearTimeout(timeout);
     }
-  }, [currentLine]);
+  }, [currentLine, codeBlock]);
 
   return (
     <div>
@@ -63,7 +62,7 @@ function TypeWriter(
         return nextText;
       });
         
-    }, 50);
+    }, 30);
 
     return () => clearInterval(interval);
   }, []);

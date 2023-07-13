@@ -3,8 +3,13 @@ import {useState} from 'react';
 import { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import { HomePageVisibilityContext } from "../../App";
+import { codeBlockProps } from '../../@types/codeBlock';
+type Props = {
+  codeBlock: codeBlockProps[],
+  setCodeBlock: React.Dispatch<React.SetStateAction<codeBlockProps[]>>
+}
 
-export default function CommandPromptField(): JSX.Element {
+export default function CommandPromptField({codeBlock, setCodeBlock}: Props): JSX.Element {
 
     const navigate = useNavigate();
 
@@ -24,8 +29,28 @@ export default function CommandPromptField(): JSX.Element {
         if (command === "y" && setHomePageVisibility) {
             setHomePageVisibility(false);
             navigate("/AboutMe", { replace: true })
+        } else if (command === "n") {
+            setCodeBlock((prevCodeBlock) => 
+            [
+                ...prevCodeBlock, 
+                { 
+                    code: `Your rejection is rejected. Please key in y.`, 
+                    prefix: '> ', 
+                    color: 'text-warning' 
+                }
+            ]);
+            setCommand("");
         } else {
-            console.log("error");
+            setCodeBlock((prevCodeBlock) => 
+            [
+                ...prevCodeBlock, 
+                { 
+                    code: `"${command}" is not a registered command. Please try again.`, 
+                    prefix: '> ', 
+                    color: 'text-warning' 
+                }
+            ]);
+            setCommand(" ");
         }
 
     };

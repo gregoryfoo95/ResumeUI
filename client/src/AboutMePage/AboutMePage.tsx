@@ -1,4 +1,5 @@
 import TypeWriter from "./AboutMeTypeWriter";
+import AboutMeWindow from  "./AboutMeWindow";
 import role from "../@classes/role";
 
 export default function AboutMePage(): JSX.Element {
@@ -9,8 +10,9 @@ export default function AboutMePage(): JSX.Element {
       ];
 
     return  (
-        <div>
+        <div className="flex flex-col gap-y-4 ">
             <TypeWriter appendClass="" roles={roles} prefix="" />
+            <AboutMeWindow/>
         </div>
     );
 };
