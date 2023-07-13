@@ -50,7 +50,7 @@ export default function CommandPromptField({codeBlock, setCodeBlock}: Props): JS
                     color: 'text-warning' 
                 }
             ]);
-            setCommand(" ");
+            setCommand("");
         }
 
     };
