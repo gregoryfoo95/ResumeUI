@@ -1,6 +1,6 @@
 
 import HomePageRoutes from './HomePage/HomePageRoutes';
-import AboutMeRoutes from './AboutMePage/AboutMeRoutes';
+import InnerHomePageRoutes from './InnerHomePage/InnerHomePageRoutes';
 import { Routes, Route } from "react-router-dom";
 import { useState, createContext } from "react";
 import './App.css';
@@ -18,7 +18,7 @@ function App() {
         {homePageVisibility ? (
           <Route path="/*" element={<HomePageRoutes/>} />
         ) : (
-          <Route path="/AboutMe/*" element={<AboutMeRoutes />} />
+          <Route path="/Home/*" element={<InnerHomePageRoutes />} />
         )}
       </Routes> 
     </HomePageVisibilityContext.Provider>

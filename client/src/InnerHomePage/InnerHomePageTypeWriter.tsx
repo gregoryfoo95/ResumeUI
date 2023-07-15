@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { TypeWriterProps } from '../@types/typeWriter';
 
-export default function HomeTypeWriter({ appendClass, roles, prefix }: TypeWriterProps) {
+export default function AboutMeTypeWriter({ appendClass, roles, prefix }: TypeWriterProps) {
     // Outer container base class + append custom class
     let className = "flex flex-col gap-4";
     if (appendClass) className += " " + appendClass;
