@@ -28,7 +28,7 @@ export default function CommandPromptField({codeBlock, setCodeBlock}: Props): JS
         event.preventDefault();
         if (command === "y" && setHomePageVisibility) {
             setHomePageVisibility(false);
-            navigate("/AboutMe", { replace: true })
+            navigate("/Home", { replace: true })
         } else if (command === "n") {
             setCodeBlock((prevCodeBlock) => 
             [
