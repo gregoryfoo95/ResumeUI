@@ -21,7 +21,7 @@ export default function CommandPromptField({codeBlock, setCodeBlock}: Props): JS
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
-        setCommand(value);
+        setCommand(value.toLowerCase());
     };
 
     const handleSubmit = (event: React.FormEvent) => {

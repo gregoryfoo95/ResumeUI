@@ -14,12 +14,6 @@ export default function InnerHomePage(): JSX.Element {
         <div className="flex flex-col gap-y-4 ">
             <TypeWriter appendClass="" roles={roles} prefix="" />
             <SuccessHack/>
-            <ul className="steps">
-                <li className="step">About Me</li>
-                <li className="step">Github Repo</li>
-                <li className="step">Education</li>
-                <li className="step">Work Experience</li>
-            </ul>
             <InnerHomePageWindow/>
         </div>
     );
