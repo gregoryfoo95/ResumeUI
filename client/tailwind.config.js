@@ -8,6 +8,17 @@ export default {
         "2xs": "375px",
         xs: "425px",
       },
+      keyframes: {
+        'slide-in-and-out': {
+          '0%': { transform: 'translateY(-100%)' },
+          '30%': { transform: 'translateY(0)' },
+          '70%': { transform: 'translateY(0)' },
+          '100%': { transform: 'translateY(-100%)' },
+        },
+      },
+      animation: {
+        'slide-in-and-out': 'slide-in-and-out 4s linear',
+      },
     },
     fontFamily: {
       sans: ["Montserrat", "sans-serif"],

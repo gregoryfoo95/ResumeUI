@@ -4,7 +4,7 @@ export default function GitHubRepo(): JSX.Element {
 
     return  (
         <div className="flex flex-col gap-y-4 ">
-            <div className="chat chat-start text-left" >
+            <div className="chat chat-end text-left" >
                 <div className="chat-header">
                     Basic AI
                 </div>
@@ -12,7 +12,7 @@ export default function GitHubRepo(): JSX.Element {
                     Any <span className="font-bold text-neutral">technical projects</span> that you've done?
                 </div>
                 </div>
-                <div className="chat chat-end">
+                <div className="chat chat-start">
                 <div className="chat-header">
                     Gregory
                 </div>
