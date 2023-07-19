@@ -1,12 +1,42 @@
-import AboutMeText from "./AboutMeText"
-import GitHubRepo from "./GitHubRepo"
+import AboutMeText from "./AboutMeText";
+import GitHubRepo from "./GitHubRepo";
+import PromptWindow from "./PromptWindow";
+import {useState} from 'react';
+import { ActiveComponent } from "../@types/ActiveComponent";
+
 export default function InnerHomePageWindow(): JSX.Element {
-    return (
-    <div className="mockup-window bg-base-300 overflow-y-scroll">
-        <div className="flex flex-col justify-center px-4 py-16 bg-base-200 gap-4 lg:text-lg sm:text-xs ">   
-            <AboutMeText/>
-            <GitHubRepo/>
-        </div> 
+    const [activeComponents, setActiveComponents] = useState<ActiveComponent[]>([]);
+
+  const handlePromptClick = (component: ActiveComponent) => {
+    setActiveComponents((prevActiveComponents) => [...prevActiveComponents, component]);
+  };
+
+  const renderComponent = (component: ActiveComponent) => {
+    switch (component) {
+      case ActiveComponent.AboutMe:
+        return <AboutMeText />;
+      case ActiveComponent.TechnicalExperience:
+        return <GitHubRepo />;
+      case ActiveComponent.Study:
+        return <></>;
+      case ActiveComponent.CareerExperience:
+        return <></>;
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="mockup-window bg-base-300 overflow-y">
+      <div className="flex flex-col justify-center px-4 py-16 bg-base-200 gap-4 lg:text-lg sm:text-xs">
+        <div className="self-center">
+          {activeComponents.map((component, index) => (
+            <div key={index}>{renderComponent(component)}</div>
+          ))}
+          <br></br>
+          <PromptWindow onPromptClick={handlePromptClick} />
+        </div>
+      </div>
     </div>
-    )
-}
+  );
+};
