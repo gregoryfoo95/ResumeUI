@@ -10,7 +10,7 @@ export default function AboutMeText(): JSX.Element {
 
     const secondBubbleTimer = setTimeout(() => {
       setShowLoading(false);
-    }, 2000);
+    }, 1000);
 
     return () => {
       clearTimeout(secondBubbleTimer);
@@ -22,7 +22,7 @@ export default function AboutMeText(): JSX.Element {
     <div className="flex flex-col gap-y-4">
       {showFirstBubble && (
         <div className="chat chat-end text-left">
-          <div className="chat-header">Basic AI</div>
+          <div className="chat-header">You</div>
           <div className="chat-bubble bg-info">
             Tell me <span className="font-bold text-neutral">about yourself</span>, Greg...
           </div>
@@ -31,7 +31,7 @@ export default function AboutMeText(): JSX.Element {
 
       {showLoading && (
         <div className="flex">
-          <div className="loading loading-dots loading-md self-start"></div>
+          <div className="loading loading-dots loading-lg self-start"></div>
         </div>
       )}
 

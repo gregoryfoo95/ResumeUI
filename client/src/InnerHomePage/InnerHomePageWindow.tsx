@@ -34,6 +34,7 @@ export default function InnerHomePageWindow(): JSX.Element {
             <div key={index}>{renderComponent(component)}</div>
           ))}
           <br></br>
+          <div className="divider"></div> 
           <PromptWindow onPromptClick={handlePromptClick} />
         </div>
       </div>
