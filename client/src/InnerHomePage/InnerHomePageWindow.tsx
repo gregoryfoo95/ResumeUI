@@ -3,7 +3,7 @@ import GitHubRepo from "./ChatContent/GitHubRepo";
 import PromptWindow from "./ChatContent/PromptWindow";
 import {useState} from 'react';
 import { ActiveComponent } from "../@types/ActiveComponent";
-import ConvoStarter from "./ChatContent/convoStarter";
+import ConvoStarter from "./ChatContent/ConvoStarter";
 
 export default function InnerHomePageWindow(): JSX.Element {
     const [activeComponents, setActiveComponents] = useState<ActiveComponent[]>([]);
