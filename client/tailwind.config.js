@@ -11,8 +11,8 @@ export default {
       keyframes: {
         'slide-in-and-out': {
           '0%': { transform: 'translateY(-100%)' },
-          '30%': { transform: 'translateY(0)' },
-          '70%': { transform: 'translateY(0)' },
+          '15%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(0)' },
           '100%': { transform: 'translateY(-100%)' },
         },
       },
