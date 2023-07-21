@@ -54,7 +54,7 @@ export default function InnerHomePageTypeWriter({ appendClass, roles, prefix }: 
             {/* <div className=" animate-bounce text-2xl md:text-6xl text-center mx-auto">
                 Gregory <span className="text-accent font-bold">Foo</span>
             </div> */}
-            <div className="flex gap-2 text-lg md:text-4xl mx-auto">
+            <div className="flex gap-2 text-base md:text-4xl mx-auto">
                 <div className="shrink-0 whitespace-nowrap ml-auto">
                     {prefix}
                     {roles[currentRole].prep ? ` ${roles[currentRole].prep} ` : ''}
