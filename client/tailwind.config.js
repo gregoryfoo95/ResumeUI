@@ -13,6 +13,7 @@ export default {
           '0%': { transform: 'translateY(-100%)' },
           '15%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(0)' },
+          '70%': { transform: 'translateY(-100%)'},
           '100%': { transform: 'translateY(-100%)' },
         },
       },
