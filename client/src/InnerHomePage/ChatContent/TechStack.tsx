@@ -110,7 +110,7 @@ export default function TechStack(): JSX.Element {
                   </li>
                   <li>
                     <div className="badge badge-success badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      MS SQL Server
+                      SQL Server
                     </div>
                   </li>
                   <li>
