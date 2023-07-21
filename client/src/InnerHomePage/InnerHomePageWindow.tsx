@@ -4,7 +4,8 @@ import PromptWindow from "./ChatContent/PromptWindow";
 import {useState} from 'react';
 import { ActiveComponent } from "../@types/ActiveComponent";
 import ConvoStarter from "./ChatContent/ConvoStarter";
-
+import Education from "./ChatContent/Education";
+import Career from "./ChatContent/Career";
 export default function InnerHomePageWindow(): JSX.Element {
     const [activeComponents, setActiveComponents] = useState<ActiveComponent[]>([]);
 
@@ -19,9 +20,9 @@ export default function InnerHomePageWindow(): JSX.Element {
       case ActiveComponent.TechnicalExperience:
         return <GitHubRepo />;
       case ActiveComponent.Study:
-        return <></>;
+        return <Education/>;
       case ActiveComponent.CareerExperience:
-        return <></>;
+        return <Career/>;
       default:
         return null;
     }
@@ -42,4 +43,4 @@ export default function InnerHomePageWindow(): JSX.Element {
       </div>
     </div>
   );
-};
+}
