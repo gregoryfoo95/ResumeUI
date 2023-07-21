@@ -1,4 +1,4 @@
-import { ActiveComponent } from "../@types/ActiveComponent";
+import { ActiveComponent } from "../../@types/ActiveComponent";
 
   type PromptWindowProps = {
     onPromptClick: (component: ActiveComponent) => void;
