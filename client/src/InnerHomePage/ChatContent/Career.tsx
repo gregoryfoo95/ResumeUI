@@ -41,12 +41,14 @@ export default function Career(): JSX.Element {
         <div className="chat chat-start">
           <div className="chat-header">Gregory</div>
           <div className="chat-bubble bg-neutral my-4">
-            <div className="card w-96 bg-base-100 shadow-xl text-left">
+            <div className="card w-full md:w-96 bg-base-100 shadow-xl text-left">
               <figure>
                 <img src={RSAF} alt="RSAF" />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">Republic of Singapore Air Force (RSAF)</h2>
+                <h2 className="card-title text-amber-300">
+                  Republic of Singapore Air Force (RSAF)
+                </h2>
                 <p className="underline">Roles</p>
                 <ul className="list-decimal px-5">
                   <a className="underline">May 23 - Present</a>
@@ -63,14 +65,23 @@ export default function Career(): JSX.Element {
                   <a className="underline">May 19 - Sep 20</a>
                   <li> Project Officer @ Aerodynamics Department</li>
                 </ul>
-                <p className="underline">Technical Projects</p>
+                <p className="underline">Awards & Technical Projects</p>
                 <ul className="list-decimal px-5">
-                  <li>Equipment Management App using VBA</li>
+                  <li>
+                    Exemplary Innovator Award in MINDEF IGNITE Awards 2022
+                  </li>
+                  <br></br>
+                  <li>
+                    Equipment Management App (VBA): Dashboard and Userform
+                    function for rapid computation of wartime decisions
+                  </li>
                   <br></br>
                   <li>
                     {" "}
-                    Predictive Maintenance Machine learning Model applied on
-                    Classified System Data
+                    Predictive Maintenance Machine Learning Model applied on
+                    Aircraft Data: Data extraction through web-parsing of HTML
+                    file, logistic regression and K-Nearest Neighbors for
+                    predictive failure forecasting
                   </li>
                   <br></br>
                   <li>
@@ -78,9 +89,18 @@ export default function Career(): JSX.Element {
                     Reliability Management of Aircraft Systems using Power BI
                   </li>
                   <br></br>
-                  <li> Key Management Web-App with Streamlit Python</li>
+                  <li>
+                    {" "}
+                    Key Management Web-App: Accounting of Physical keys within
+                    department, utilized streamlit library and data
+                    visualizations within Python
+                  </li>
                   <br></br>
-                  <li> Telegram Bot for Work Process Reporting with Python</li>
+                  <li>
+                    {" "}
+                    Telegram Bot for Work Process Reporting: Rapid access to key
+                    data for decisionmaking, developed in Python
+                  </li>
                 </ul>
               </div>
             </div>

@@ -41,7 +41,7 @@ export default function Education(): JSX.Element {
         <div className="chat chat-start">
           <div className="chat-header">Gregory</div>
           <div className="chat-bubble bg-neutral my-4">
-            <div className="card w-96 bg-slate-400 shadow-xl text-left">
+            <div className="card w-full md:w-96 bg-slate-400 shadow-xl text-left">
               <figure>
                 <img src={ImperialCollege} alt="ICL" />
               </figure>
@@ -77,7 +77,7 @@ export default function Education(): JSX.Element {
           </div>
 
           <div className="chat-bubble bg-neutral my-4">
-            <div className="card w-96 bg-slate-400 shadow-xl text-left">
+            <div className="card w-full md:w-96 bg-slate-400 shadow-xl text-left">
               <figure>
                 <img src={NTU} alt="NTU" />
               </figure>

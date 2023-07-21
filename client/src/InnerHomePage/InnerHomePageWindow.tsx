@@ -6,6 +6,7 @@ import { ActiveComponent } from "../@types/ActiveComponent";
 import ConvoStarter from "./ChatContent/ConvoStarter";
 import Education from "./ChatContent/Education";
 import Career from "./ChatContent/Career";
+import TechStack from "./ChatContent/TechStack";
 export default function InnerHomePageWindow(): JSX.Element {
     const [activeComponents, setActiveComponents] = useState<ActiveComponent[]>([]);
 
@@ -22,7 +23,9 @@ export default function InnerHomePageWindow(): JSX.Element {
       case ActiveComponent.Study:
         return <Education/>;
       case ActiveComponent.CareerExperience:
-        return <Career/>;
+        return <Career />;
+      case ActiveComponent.TechStack:
+        return <TechStack />;
       default:
         return null;
     }
