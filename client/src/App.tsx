@@ -18,7 +18,10 @@ function App() {
         {homePageVisibility ? (
           <Route path="/*" element={<HomePageRoutes/>} />
         ) : (
-          <Route path="/Home/*" element={<InnerHomePageRoutes />} />
+          <>
+            <Route path="/*" element={<HomePageRoutes/>} />
+            <Route path="/Home/*" element={<InnerHomePageRoutes />} />
+          </>
         )}
       </Routes> 
     </HomePageVisibilityContext.Provider>
