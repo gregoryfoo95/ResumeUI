@@ -5,7 +5,6 @@ export default function Education(): JSX.Element {
   const [showFirstBubble, setShowFirstBubble] = useState<boolean>(false);
   const [showLoading, setShowLoading] = useState<boolean>(true);
 
-  console.log("showLoading", showLoading)
   useEffect(() => {
       setShowFirstBubble(true);
 
@@ -41,11 +40,11 @@ export default function Education(): JSX.Element {
         <div className="chat chat-start">
           <div className="chat-header">Gregory</div>
           <div className="chat-bubble bg-neutral my-4">
-            <div className="card w-full md:w-96 bg-slate-400 shadow-xl text-left">
+            <div className="card w-full md:w-96 bg-cyan-700 shadow-xl text-left">
               <figure>
-                <img src={ImperialCollege} alt="ICL" />
+                <img src={ImperialCollege} alt="ICL"/>
               </figure>
-              <div className="card-body text-black font-bold">
+              <div className="card-body text-white font-bold">
                 <h2 className="card-title text-amber-300">
                   MSc Advanced Aeronautical Engineering - Imperial College
                   London
@@ -77,11 +76,11 @@ export default function Education(): JSX.Element {
           </div>
 
           <div className="chat-bubble bg-neutral my-4">
-            <div className="card w-full md:w-96 bg-slate-400 shadow-xl text-left">
+            <div className="card w-full md:w-96 bg-cyan-700 shadow-xl text-left">
               <figure>
                 <img src={NTU} alt="NTU" />
               </figure>
-              <div className="card-body text-black font-bold">
+              <div className="card-body text-white font-bold">
                 <h2 className="card-title text-amber-300">
                   BEng Aerospace Engineering, Nanyang Technological University
                 </h2>
