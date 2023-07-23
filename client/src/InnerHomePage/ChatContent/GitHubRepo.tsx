@@ -22,9 +22,9 @@ export default function GitHubRepo(): JSX.Element {
     <div className="flex flex-col gap-y-4">
       {showFirstBubble && (
         <div className="chat chat-end text-left">
-          <div className="chat-header">You</div>
-          <div className="chat-bubble bg-primary">
-            Any <span className="font-bold text-neutral">technical projects</span> that you've done?
+          <div className="chat-header text-sm md:text-xl font-extrabold">You</div>
+          <div className="chat-bubble bg-primary my-4 text-black">
+            Any <span className="font-bold">technical projects</span> that you've done?
           </div>
         </div>
       )}
@@ -37,7 +37,7 @@ export default function GitHubRepo(): JSX.Element {
 
       {!showLoading && showFirstBubble && (
         <div className="chat chat-start">
-          <div className="chat-header">Gregory</div>
+          <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
           <div className="chat-bubble bg-neutral my-4">
                     <div className="join join-vertical">
                         <button className="btn join-item bg-cyan-950 text-xs md:text-base">

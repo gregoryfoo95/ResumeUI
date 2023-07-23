@@ -22,8 +22,8 @@ export default function TechStack(): JSX.Element {
     <div className="flex flex-col gap-y-4">
       {showFirstBubble && (
         <div className="chat chat-end text-left">
-          <div className="chat-header">You</div>
-          <div className="chat-bubble bg-primary">
+          <div className="chat-header text-sm md:text-xl font-extrabold">You</div>
+          <div className="chat-bubble bg-primary my-4 text-black">
             Show off your{" "}
             <span className="font-bold text-neutral">tech stack</span>!
           </div>
@@ -38,7 +38,7 @@ export default function TechStack(): JSX.Element {
 
       {!showLoading && showFirstBubble && (
         <div className="chat chat-start">
-          <div className="chat-header">Gregory</div>
+          <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
           <div className="chat-bubble bg-neutral my-4">
             <div className="card w-full md:w-96 bg-base-100 shadow-xl text-left ">
               <figure>
@@ -84,32 +84,32 @@ export default function TechStack(): JSX.Element {
                     </div>
                   </li>
                   <li>
-                    <div className="badge badge-accent badge-outline my-1 text-xs md:text-sm lg:text-base">
+                    <div className="badge badge-warning badge-outline my-1 text-xs md:text-sm lg:text-base">
                       HTML
                     </div>
                   </li>
                   <li>
-                    <div className="badge badge-accent badge-outline my-1 text-xs md:text-sm lg:text-base">
+                    <div className="badge badge-warning badge-outline my-1 text-xs md:text-sm lg:text-base">
                       CSS
                     </div>
                   </li>
                   <li>
-                    <div className="badge badge-accent badge-outline my-1 text-xs md:text-sm lg:text-base">
+                    <div className="badge badge-warning badge-outline my-1 text-xs md:text-sm lg:text-base">
                       React
                     </div>
                   </li>
                   <li>
-                    <div className="badge badge-success badge-outline my-1 text-xs md:text-sm lg:text-base">
+                    <div className="badge badge-info badge-outline my-1 text-xs md:text-sm lg:text-base">
                       MongoDB
                     </div>
                   </li>
                   <li>
-                    <div className="badge badge-success badge-outline my-1 text-xs md:text-sm lg:text-base">
+                    <div className="badge badge-info badge-outline my-1 text-xs md:text-sm lg:text-base">
                       PostgreSQL
                     </div>
                   </li>
                   <li>
-                    <div className="badge badge-success badge-outline my-1 text-xs md:text-sm lg:text-base">
+                    <div className="badge badge-info badge-outline my-1 text-xs md:text-sm lg:text-base">
                       SQL Server
                     </div>
                   </li>

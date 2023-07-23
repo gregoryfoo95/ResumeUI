@@ -21,11 +21,11 @@ export default function Career(): JSX.Element {
   return (
     <div className="flex flex-col gap-y-4">
       {showFirstBubble && (
-        <div className="chat chat-end text-left">
-          <div className="chat-header">You</div>
-          <div className="chat-bubble bg-primary">
+        <div className="chat chat-end text-left ">
+          <div className="chat-header text-sm md:text-xl">You</div>
+          <div className="chat-bubble bg-primary my-4 text-black">
             Share with me your{" "}
-            <span className="font-bold text-neutral">career</span> journey so
+            <span className="font-bold">career</span> journey so
             far!
           </div>
         </div>
@@ -39,10 +39,10 @@ export default function Career(): JSX.Element {
 
       {!showLoading && showFirstBubble && (
         <div className="chat chat-start">
-          <div className="chat-header">Gregory</div>
+          <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
           <div className="chat-bubble bg-neutral my-4">
-            <div className="card w-full md:w-96 bg-base-100 shadow-xl text-left">
-              <figure>
+            <div className="card w-full bg-base-100 shadow-xl text-left">
+              <figure className="w-80 justify-left">
                 <img src={RSAF} alt="RSAF" />
               </figure>
               <div className="card-body">
@@ -53,17 +53,17 @@ export default function Career(): JSX.Element {
                 <ul className="list-decimal px-5">
                   <a className="underline">May 23 - Present</a>
                   <li>
-                    Software Engineer @ RSAF Agile innovation Department (RAiD)
+                    Software Engineer @ <span className="font-bold">RSAF Agile innovation Digital (RAiD)</span>
                   </li>
                   <br></br>
                   <a className="underline">Oct 20 - Apr 23</a>
                   <li>
                     {" "}
-                    OC (Acting) & OIC @ Aircraft Weapons Operations Department
+                    OC (Acting) & OIC @ <span className="font-bold">Aircraft Weapons Operations Department</span>
                   </li>
                   <br></br>
                   <a className="underline">May 19 - Sep 20</a>
-                  <li> Project Officer @ Aerodynamics Department</li>
+                  <li> Project Officer @ <span className="font-bold">Aerodynamics Department</span></li>
                 </ul>
                 <p className="underline">Awards & Technical Projects</p>
                 <ul className="list-decimal px-5">

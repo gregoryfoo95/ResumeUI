@@ -22,10 +22,10 @@ export default function Education(): JSX.Element {
     <div className="flex flex-col gap-y-4">
       {showFirstBubble && (
         <div className="chat chat-end text-left">
-          <div className="chat-header">You</div>
-          <div className="chat-bubble bg-primary">
+          <div className="chat-header text-sm md:text-xl font-extrabold">You</div>
+          <div className="chat-bubble bg-primary my-4 text-black">
             Could you tell me more about your{" "}
-            <span className="font-bold text-neutral">education</span>?
+            <span className="font-bold">education</span>?
           </div>
         </div>
       )}
@@ -38,10 +38,10 @@ export default function Education(): JSX.Element {
 
       {!showLoading && showFirstBubble && (
         <div className="chat chat-start">
-          <div className="chat-header">Gregory</div>
+          <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
           <div className="chat-bubble bg-neutral my-4">
-            <div className="card w-full md:w-96 bg-cyan-700 shadow-xl text-left">
-              <figure>
+            <div className="card w-full bg-base-100 shadow-xl text-left">
+              <figure className="w-80 justify-left">
                 <img src={ImperialCollege} alt="ICL"/>
               </figure>
               <div className="card-body text-white font-bold">
@@ -76,8 +76,8 @@ export default function Education(): JSX.Element {
           </div>
 
           <div className="chat-bubble bg-neutral my-4">
-            <div className="card w-full md:w-96 bg-cyan-700 shadow-xl text-left">
-              <figure>
+            <div className="card w-full bg-base-100 shadow-xl text-left">
+              <figure className="w-80 justify-left">
                 <img src={NTU} alt="NTU" />
               </figure>
               <div className="card-body text-white font-bold">
