@@ -40,8 +40,8 @@ export default function TechStack(): JSX.Element {
         <div className="chat chat-start">
           <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
           <div className="chat-bubble bg-neutral my-4">
-            <div className="card w-full md:w-96 bg-base-100 shadow-xl text-left ">
-              <figure>
+            <div className="card w-full md:w-96 bg-base-100 shadow-xl text-left">
+              <figure className="place-self-start mx-8">
                 <img
                   className="w-20 h-20 lg:w-35 lg:h-35"
                   src={Stack}

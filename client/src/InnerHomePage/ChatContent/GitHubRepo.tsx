@@ -40,24 +40,24 @@ export default function GitHubRepo(): JSX.Element {
           <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
           <div className="chat-bubble bg-neutral my-4">
                     <div className="join join-vertical">
-                        <button className="btn join-item bg-cyan-950 text-xs md:text-base">
+                        <button className="btn join-item bg-secondary text-xs md:text-base text-black border-none hover:bg-yellow-300">
                             <a href="https://github.com/gregoryfoo95/LSS-currency-ts" target="_blank" rel="noopener noreferrer"> 
-                                RSAF - Currency Tracking for Aircrew
+                                <span className="font-extrabold">RSAF</span> - Currency Tracking for Aircrew
                             </a>
                         </button>
-                        <button className="btn join-item bg-sky-700 text-xs md:text-base">
+                        <button className="btn join-item bg-accent text-xs md:text-base text-black border-none hover:bg-yellow-300">
                             <a href="https://github.com/gregoryfoo95/MERN_Pharmacy_App_Better_Life" target="_blank" rel="noopener noreferrer"> 
-                                BetterLife - Pharmacy Management App
+                            <span className="font-extrabold">BetterLife</span> - Pharmacy Management App
                             </a>
                         </button>
-                        <button className="btn join-item bg-purple-700 text-xs md:text-base">
+                        <button className="btn join-item bg-cyan-400 text-xs md:text-base text-black border-none hover:bg-yellow-300">
                             <a href="https://github.com/gregoryfoo95/SaveLah" target="_blank" rel="noopener noreferrer"> 
-                            SaveLah - Budgeting and Expense Tracking App 
+                            <span className="font-extrabold">SaveLah</span> - Budgeting and Expense Tracking App 
                             </a>
                         </button>
-                        <button className="btn join-item bg-teal-800 text-xs md:text-base">
+                        <button className="btn join-item bg-cyan-200 text-xs md:text-base text-black border-none hover:bg-yellow-300">
                             <a href="https://github.com/gregoryfoo95/Eeveelution" target="_blank" rel="noopener noreferrer"> 
-                                Eeveelution - 2048-inspired Game
+                            <span className="font-extrabold">Eeveelution</span> - 2048-inspired Game
                             </a>
                         </button>
                     </div>

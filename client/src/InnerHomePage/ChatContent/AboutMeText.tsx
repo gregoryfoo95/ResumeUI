@@ -27,8 +27,8 @@ export default function AboutMeText(): JSX.Element {
           Tell me{" "}
           <span className="font-bold">
             about yourself
-            <span className="font-extrabold">, Greg...</span>
           </span>
+          , Greg...
         </div>
       </div>
       )}
