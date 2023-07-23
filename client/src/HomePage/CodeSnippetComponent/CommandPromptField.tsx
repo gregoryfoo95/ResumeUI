@@ -34,9 +34,10 @@ export default function CommandPromptField({codeBlock, setCodeBlock}: Props): JS
             [
                 ...prevCodeBlock, 
                 { 
-                    code: `Your rejection is rejected. Please key in y.`, 
+                    code: `You are unable to proceed without typing 'y'.`, 
                     prefix: '> ', 
-                    color: 'text-warning' 
+                    color: 'text-warning',
+                    shouldType: false
                 }
             ]);
             setCommand("");
@@ -47,7 +48,8 @@ export default function CommandPromptField({codeBlock, setCodeBlock}: Props): JS
                 { 
                     code: `"${command}" is not a registered command. Please try again.`, 
                     prefix: '> ', 
-                    color: 'text-warning' 
+                    color: 'text-warning',
+                    shouldType: false
                 }
             ]);
             setCommand("");

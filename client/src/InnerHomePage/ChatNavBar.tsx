@@ -15,7 +15,7 @@ export default function ChatNavBar(): JSX.Element {
             <div className="flex-1">
                 <div className="flex flex-col">
                     <a className="btn btn-ghost normal-case text-xl">Gregory Foo</a>
-                    <span className="indicator-item text-left px-5 text-slate-400">Online</span>
+                    <span className="indicator-item text-left px-5 -mt-2 text-slate-400">Online</span>
                 </div>
             </div>
             
