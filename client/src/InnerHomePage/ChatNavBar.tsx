@@ -13,8 +13,12 @@ export default function ChatNavBar(): JSX.Element {
                 </label>
             </div>
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">Gregory Foo</a>
+                <div className="flex flex-col">
+                    <a className="btn btn-ghost normal-case text-xl">Gregory Foo</a>
+                    <span className="indicator-item text-left px-5 text-slate-400">Online</span>
+                </div>
             </div>
+            
             <div className="flex-none">
                 <div className="dropdown dropdown-end dropdown-hover">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
