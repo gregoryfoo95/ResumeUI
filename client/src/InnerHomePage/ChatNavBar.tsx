@@ -15,7 +15,7 @@ export default function ChatNavBar(): JSX.Element {
             <div className="flex-1">
                 <div className="flex flex-col">
                     <a className="btn btn-ghost normal-case text-xl">Gregory Foo</a>
-                    <span className="indicator-item text-left px-5 -mt-2 text-slate-400">Online</span>
+                    <span className="indicator-item text-left ml-4 -mt-2 text-slate-400">Online</span>
                 </div>
             </div>
             
@@ -31,11 +31,11 @@ export default function ChatNavBar(): JSX.Element {
                     </label>
                     <div tabIndex={0} className="mt-4 z-[1] card card-compact dropdown-content w-40 bg-base-100 shadow">
                         <div className="card-body text-left">
-                            <a href="https://github.com/gregoryfoo95" target="_blank" rel="noopener noreferrer">
+                            <a className="font-bold" href="https://github.com/gregoryfoo95" target="_blank" rel="noopener noreferrer">
                                 GitHub
                                 <img className="w-20 h-20" src={GitHub} alt="GitHub" />
                             </a>
-                            <a href="https://www.linkedin.com/in/gregoryfoo" target="_blank" rel="noopener noreferrer">
+                            <a className="font-bold" href="https://www.linkedin.com/in/gregoryfoo" target="_blank" rel="noopener noreferrer">
                                 LinkedIn
                                 <img className="w-20 h-20" src={LinkedIn} alt="LinkedIn" />
                             </a>

@@ -33,7 +33,7 @@ export default function InfoBar(): JSX.Element {
             <InnerHomePageTypeWriter appendClass="" roles={roles} prefix="" />
           </div>
           <br></br>
-          <div className="stat-desc text-success text-sm">@RAiD/DSTA</div>
+          <div className="stat-desc text-success text-sm md:text-lg">@RAiD/DSTA</div>
         </div>
         
         <div className="stat flex-1 min-w-0">
@@ -43,7 +43,7 @@ export default function InfoBar(): JSX.Element {
           </svg>
           </div>
           <div className="stat-title font-bold text-xl">Email</div>
-          <div className="stat-value text-lg">gregoryfoo@hotmail.com</div>
+          <div className="stat-value text-sm md:text-lg">gregoryfoo@hotmail.com</div>
         </div>
         
       </div>

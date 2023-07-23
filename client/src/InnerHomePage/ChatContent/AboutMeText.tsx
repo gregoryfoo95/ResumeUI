@@ -22,11 +22,15 @@ export default function AboutMeText(): JSX.Element {
     <div className="flex flex-col gap-y-4">
       {showFirstBubble && (
         <div className="chat chat-end text-left">
-          <div className="chat-header">You</div>
-          <div className="chat-bubble bg-primary">
-            Tell me <span className="font-bold text-neutral">about yourself</span>, Greg...
-          </div>
+        <div className="chat-header text-sm md:text-xl font-extrabold">You</div>
+        <div className="chat-bubble bg-primary my-4 text-black">
+          Tell me{" "}
+          <span className="font-bold">
+            about yourself
+            <span className="font-extrabold">, Greg...</span>
+          </span>
         </div>
+      </div>
       )}
 
       {showLoading && (
@@ -37,8 +41,8 @@ export default function AboutMeText(): JSX.Element {
 
       {!showLoading && showFirstBubble && (
         <div className="chat chat-start">
-          <div className="chat-header">Gregory</div>
-          <div className="chat-bubble bg-neutral text-left">
+          <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
+          <div className="chat-bubble bg-neutral text-left my-4">
             I am a driven and hardworking individual who strives to attain as much knowledge as possible and possesses the dedication to lifelong learning. My career journey started off as an aerospace engineer, amassing a few years worth of aviation experience, armed with people management skillsets and deep technical expertise for a large organization (Republic of Singapore Air Force). 
                 In 2022, I decided to pursue my unearthed passion, which is developing software applications and machine learning products for the betterment of our daily lives through technology. Boundaries were pushed and here I am, within the Tech arm of RSAF, RAiD. Equipped with an arsenal of software skills (e.g Full-Stack Development using Javascript) with a substantial technical repository, I am looking to enhance the current processes of the RSAF and aspire to create a marriage between aviation, software development and machine learning/AI.
           </div>
