@@ -23,14 +23,14 @@ export default function GitHubRepo(): JSX.Element {
       {showFirstBubble && (
         <div className="chat chat-end text-left">
           <div className="chat-header">You</div>
-          <div className="chat-bubble bg-info">
+          <div className="chat-bubble bg-primary">
             Any <span className="font-bold text-neutral">technical projects</span> that you've done?
           </div>
         </div>
       )}
 
       {showLoading && (
-        <div className="flex">
+        <div className="flex px-4">
           <div className="loading loading-dots loading-lg self-start"></div>
         </div>
       )}

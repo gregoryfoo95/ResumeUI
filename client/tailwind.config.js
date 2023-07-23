@@ -27,7 +27,8 @@ export default {
   },
   daisyui: {
     themes: [
-      "synthwave"
+      "forest"
+      //"synthwave"
     ],
   },
   plugins: [require("daisyui")],

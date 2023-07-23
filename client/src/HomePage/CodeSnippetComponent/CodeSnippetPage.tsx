@@ -13,7 +13,10 @@ export default function CodeSnippetPage({codeBlock, setCodeBlock}: Props): JSX.E
     if (currentLine < codeBlock.length) {
       const timeout = setTimeout(() => {
         setCurrentLine(prevLine => prevLine + 1);
-      }, codeBlock[currentLine].code.length * 30);
+      }, 
+      (currentLine === 0) 
+      ? codeBlock[currentLine].code.length * 40 
+      : codeBlock[currentLine].code.length * 15);
   
       return () => clearTimeout(timeout);
     }
@@ -28,6 +31,7 @@ export default function CodeSnippetPage({codeBlock, setCodeBlock}: Props): JSX.E
               code={line.code}
               prefix={line.prefix}
               color={line.color}
+              shouldType={line.shouldType}
             />
           )}
         </pre>
@@ -42,11 +46,8 @@ function TypeWriter(
       code, 
       prefix, 
       color, 
-    }: { 
-      code: string; 
-      prefix: string; 
-      color: string; 
-    }
+      shouldType
+    } : codeBlockProps
   ) {
   const [currentText, setCurrentText] = useState('');
   let currentIndex = 0;
@@ -71,7 +72,7 @@ function TypeWriter(
     <pre className={color}>
       <code>
         {prefix}
-        {currentText}
+        {shouldType ? currentText : code}
       </code>
     </pre>
   );
