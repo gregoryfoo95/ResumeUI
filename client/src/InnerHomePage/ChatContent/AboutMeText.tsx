@@ -23,7 +23,7 @@ export default function AboutMeText(): JSX.Element {
       {showFirstBubble && (
         <div className="chat chat-end text-left">
           <div className="chat-header">You</div>
-          <div className="chat-bubble bg-info">
+          <div className="chat-bubble bg-primary">
             Tell me <span className="font-bold text-neutral">about yourself</span>, Greg...
           </div>
         </div>

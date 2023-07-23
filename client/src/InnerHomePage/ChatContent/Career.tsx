@@ -23,7 +23,7 @@ export default function Career(): JSX.Element {
       {showFirstBubble && (
         <div className="chat chat-end text-left">
           <div className="chat-header">You</div>
-          <div className="chat-bubble bg-info">
+          <div className="chat-bubble bg-primary">
             Share with me your{" "}
             <span className="font-bold text-neutral">career</span> journey so
             far!
@@ -32,7 +32,7 @@ export default function Career(): JSX.Element {
       )}
 
       {showLoading && (
-        <div className="flex">
+        <div className="flex px-4">
           <div className="loading loading-dots loading-lg self-start"></div>
         </div>
       )}
