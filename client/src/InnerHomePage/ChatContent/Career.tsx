@@ -42,7 +42,7 @@ export default function Career(): JSX.Element {
           <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
           <div className="chat-bubble bg-neutral my-4">
             <div className="card w-full bg-base-100 shadow-xl text-left">
-              <figure className="w-80 justify-left">
+              <figure className="w-52 md:w-80 justify-left">
                 <img src={RSAF} alt="RSAF" />
               </figure>
               <div className="card-body">
