@@ -30,7 +30,7 @@ export default function AboutMeText(): JSX.Element {
       )}
 
       {showLoading && (
-        <div className="flex">
+        <div className="flex px-4">
           <div className="loading loading-dots loading-lg self-start"></div>
         </div>
       )}

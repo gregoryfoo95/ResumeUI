@@ -33,7 +33,7 @@ export default function InfoBar(): JSX.Element {
             <InnerHomePageTypeWriter appendClass="" roles={roles} prefix="" />
           </div>
           <br></br>
-          <div className="stat-desc text-success">@RAiD/DSTA</div>
+          <div className="stat-desc text-success text-sm">@RAiD/DSTA</div>
         </div>
         
         <div className="stat flex-1 min-w-0">
