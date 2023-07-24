@@ -76,7 +76,7 @@ export default function Education(): JSX.Element {
           </div>
 
           <div className="chat-bubble text-sm md:text-lg bg-neutral my-4">
-            <div className="card w-full bg-neutral text-left">
+            <div className="card w-full text-xs md:text-lg bg-neutral text-left">
               <figure className="w-36 sm:w-60 md:w-96 self-center bg-white">
                 <img src={NTU} alt="NTU" />
               </figure>
