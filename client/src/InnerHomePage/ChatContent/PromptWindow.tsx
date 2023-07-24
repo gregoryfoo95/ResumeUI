@@ -17,13 +17,13 @@ export default function PromptWindow({onPromptClick}: PromptWindowProps): JSX.El
           className="grid w-full h-20 rounded-full px-8 border-4 border-primary bg-base-300 text-white place-content-center cursor-pointer text-xs md:text-lg"
           onClick={() => onPromptClick(ActiveComponent.TechnicalExperience)}
         >
-          Could you show me some of your technical experience?
+          Could you provide concrete examples of your technical capabilities?
         </div>
         <div
           className="grid w-full h-20 rounded-full px-8 border-4 border-primary bg-base-300 text-white place-content-center cursor-pointer text-xs md:text-lg"
           onClick={() => onPromptClick(ActiveComponent.Study)}
         >
-          Where did you study?
+          Tell me more about your education!
         </div>
         <div
           className="grid w-full h-20 rounded-full px-8 border-4 border-primary bg-base-300 text-white place-content-center cursor-pointer text-xs md:text-lg"

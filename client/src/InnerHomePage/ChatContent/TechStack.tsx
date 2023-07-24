@@ -23,9 +23,9 @@ export default function TechStack(): JSX.Element {
       {showFirstBubble && (
         <div className="chat chat-end text-left">
           <div className="chat-header text-sm md:text-xl font-extrabold">You</div>
-          <div className="chat-bubble bg-primary my-4 text-black">
+          <div className="chat-bubble bg-primary my-3 text-black font-bold">
             Show off your{" "}
-            <span className="font-bold text-neutral">tech stack</span>!
+            <span className="text-red-800">tech stack</span>!
           </div>
         </div>
       )}
@@ -39,8 +39,8 @@ export default function TechStack(): JSX.Element {
       {!showLoading && showFirstBubble && (
         <div className="chat chat-start">
           <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
-          <div className="chat-bubble bg-neutral my-4">
-            <div className="card w-full md:w-96 bg-base-100 shadow-xl text-left">
+          <div className="chat-bubble bg-neutral my-3">
+            <div className="card w-full md:w-96 bg-neutral text-left">
               <figure className="place-self-start mx-8">
                 <img
                   className="w-20 h-20 lg:w-35 lg:h-35"
@@ -48,86 +48,96 @@ export default function TechStack(): JSX.Element {
                   alt="RSAF"
                 />
               </figure>
-              <div className="card-body">
+              <div className="card-body px-3">
                 <h2 className="card-title text-amber-300 text-md md:text-xl">
                   Tech Stacks
                 </h2>
                 <ul className="list">
-                  <li>
-                    <div className="badge badge-secondary badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      Javascript
-                    </div>
-                  </li>
-                  <li>
-                    <div className="badge badge-secondary badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      Typescript
-                    </div>
-                  </li>
-                  <li>
-                    <div className="badge badge-secondary badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      Python
-                    </div>
-                  </li>
-                  <li>
-                    <div className="badge badge-secondary badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      Java
-                    </div>
-                  </li>
-                  <li>
-                    <div className="badge badge-secondary badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      MATLAB
-                    </div>
-                  </li>
-                  <li>
-                    <div className="badge badge-secondary badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      VBA
-                    </div>
-                  </li>
-                  <li>
-                    <div className="badge badge-warning badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      HTML
-                    </div>
-                  </li>
-                  <li>
-                    <div className="badge badge-warning badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      CSS
-                    </div>
-                  </li>
-                  <li>
-                    <div className="badge badge-warning badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      React
-                    </div>
-                  </li>
-                  <li>
-                    <div className="badge badge-info badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      MongoDB
-                    </div>
-                  </li>
-                  <li>
-                    <div className="badge badge-info badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      PostgreSQL
-                    </div>
-                  </li>
-                  <li>
-                    <div className="badge badge-info badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      SQL Server
-                    </div>
-                  </li>
+                  <div className="flex flex-col xs:flex-row">
+                    <li>
+                      <div className="badge badge-secondary badge-outline my-1 text-xs md:text-sm lg:text-base">
+                        Javascript
+                      </div>
+                    </li>
+                    <li>
+                      <div className="badge badge-secondary badge-outline my-1 text-xs md:text-sm lg:text-base">
+                        Typescript
+                      </div>
+                    </li>
+                    <li>
+                      <div className="badge badge-secondary badge-outline my-1 text-xs md:text-sm lg:text-base">
+                        Python
+                      </div>
+                    </li>
+                  </div>
+                  <div className="flex flex-col xs:flex-row">
+                    <li>
+                      <div className="badge badge-secondary badge-outline my-1 text-xs md:text-sm lg:text-base">
+                        Java
+                      </div>
+                    </li>
+                    <li>
+                      <div className="badge badge-secondary badge-outline my-1 text-xs md:text-sm lg:text-base">
+                        MATLAB
+                      </div>
+                    </li>
+                    <li>
+                      <div className="badge badge-secondary badge-outline my-1 text-xs md:text-sm lg:text-base">
+                        VBA
+                      </div>
+                    </li>
+                  </div>
+                  <div className="flex flex-col xs:flex-row">
+                    <li>
+                      <div className="badge badge-warning badge-outline my-1 text-xs md:text-sm lg:text-base">
+                        HTML
+                      </div>
+                    </li>
+                    <li>
+                      <div className="badge badge-warning badge-outline my-1 text-xs md:text-sm lg:text-base">
+                        CSS
+                      </div>
+                    </li>
+                    <li>
+                      <div className="badge badge-warning badge-outline my-1 text-xs md:text-sm lg:text-base">
+                        React
+                      </div>
+                    </li>
+                  </div>
+                  <div className="flex flex-col xs:flex-row">
+                    <li>
+                      <div className="badge badge-info badge-outline my-1 text-xs md:text-sm lg:text-base">
+                        MongoDB
+                      </div>
+                    </li>
+                    <li>
+                      <div className="badge badge-info badge-outline my-1 text-xs md:text-sm lg:text-base">
+                        PostgreSQL
+                      </div>
+                    </li>
+                    <li>
+                      <div className="badge badge-info badge-outline my-1 text-xs md:text-sm lg:text-base">
+                        SQLServer
+                      </div>
+                    </li>
+                  </div>
                   <li>
                     <div className="badge badge-primary badge-outline my-1 text-xs md:text-sm lg:text-base">
                       ML
                     </div>
                   </li>
-                  <li>
-                    <div className="badge badge-white badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      Git
-                    </div>
-                  </li>
-                  <li>
-                    <div className="badge badge-white badge-outline my-1 text-xs md:text-sm lg:text-base">
-                      LuciadLightSpeed
-                    </div>
-                  </li>
+                  <div className="flex flex-col xs:flex-row">
+                    <li>
+                      <div className="badge badge-white badge-outline my-1 text-xs md:text-sm lg:text-base">
+                        Git
+                      </div>
+                    </li>
+                    <li>
+                      <div className="badge badge-white badge-outline my-1 text-xs md:text-sm lg:text-base">
+                        LuciadLightSpeed
+                      </div>
+                    </li>
+                  </div>
                 </ul>
               </div>
             </div>
