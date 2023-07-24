@@ -39,13 +39,13 @@ export default function Education(): JSX.Element {
       {!showLoading && showFirstBubble && (
         <div className="chat chat-start">
           <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
-          <div className="chat-bubble text-sm md:text-lg bg-neutral my-3">
+          <div className="chat-bubble text-xs md:text-lg bg-neutral my-3">
             <div className="card w-full bg-neutral text-left font-bold">
-              <figure className="xs:w-36 sm:w-52 md:w-96 self-center bg-white">
+              <figure className="w-36 sm:w-60 md:w-96 self-center bg-white">
                 <img src={ImperialCollege} alt="ICL"/>
               </figure>
               <div className="card-body text-white font-bold">
-                <h2 className="card-title text-amber-300">
+                <h2 className="card-title text-amber-300 text-base md:text-lg">
                   MSc Advanced Aeronautical Engineering - Imperial College
                   London
                 </h2>
@@ -77,11 +77,11 @@ export default function Education(): JSX.Element {
 
           <div className="chat-bubble text-sm md:text-lg bg-neutral my-4">
             <div className="card w-full bg-neutral text-left">
-              <figure className="xs:w-36 sm:w-52 md:w-96 self-center bg-white">
+              <figure className="w-36 sm:w-60 md:w-96 self-center bg-white">
                 <img src={NTU} alt="NTU" />
               </figure>
               <div className="card-body text-white font-bold">
-                <h2 className="card-title text-amber-300">
+                <h2 className="card-title text-amber-300 text-base md:text-lg">
                   BEng Aerospace Engineering, Nanyang Technological University
                 </h2>
                 <p className="underline">Grade: First Class Honours</p>

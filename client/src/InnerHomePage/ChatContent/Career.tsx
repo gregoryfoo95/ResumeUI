@@ -41,8 +41,8 @@ export default function Career(): JSX.Element {
         <div className="chat chat-start">
           <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
           <div className="chat-bubble bg-neutral my-3">
-            <div className="card w-full text-sm md:text-lg bg-neutral text-left font-bold">
-              <figure className="xs:w-36 sm:w-52 md:w-96 self-center">
+            <div className="card w-full text-xs md:text-lg bg-neutral text-left font-bold">
+              <figure className="xs:w-36 sm:w-60 md:w-96 self-center">
                 <img src={RSAF} alt="RSAF" />
               </figure>
               <div className="flex flex-col">
