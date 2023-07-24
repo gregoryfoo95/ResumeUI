@@ -23,7 +23,7 @@ export default function TechStack(): JSX.Element {
       {showFirstBubble && (
         <div className="chat chat-end text-left">
           <div className="chat-header text-sm md:text-xl font-extrabold">You</div>
-          <div className="chat-bubble bg-primary my-3 text-black font-bold">
+          <div className="chat-bubble text-sm md:text-lg bg-primary my-3 text-black font-bold">
             Show off your{" "}
             <span className="text-red-800">tech stack</span>!
           </div>
@@ -48,7 +48,7 @@ export default function TechStack(): JSX.Element {
                   alt="RSAF"
                 />
               </figure>
-              <div className="card-body px-3">
+              <div className="card-body px-3 ">
                 <h2 className="card-title text-amber-300 text-md md:text-xl">
                   Tech Stacks
                 </h2>
