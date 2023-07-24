@@ -14,7 +14,7 @@ export default function HomePage(): JSX.Element {
 
     return  (
         <div className="flex flex-col gap-4">
-            <div className="mockup-code h-auto w-full text-left ">
+            <div className="mockup-code h-auto w-full text-left text-xs md:text-sm ">
                 <CodeSnippetPage codeBlock={codeBlock} setCodeBlock={setCodeBlock}/>
                 <div className="px-4 py-4">
                     <CommandPromptField codeBlock={codeBlock} setCodeBlock={setCodeBlock}/>
