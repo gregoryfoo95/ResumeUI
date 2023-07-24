@@ -23,8 +23,8 @@ export default function GitHubRepo(): JSX.Element {
       {showFirstBubble && (
         <div className="chat chat-end text-left">
           <div className="chat-header text-sm md:text-xl font-extrabold">You</div>
-          <div className="chat-bubble bg-primary my-4 text-black">
-            Any <span className="font-bold">technical projects</span> that you've done?
+          <div className="chat-bubble bg-primary my-3 text-black font-bold">
+            Any <span className="text-red-800">technical projects</span> that you've done?
           </div>
         </div>
       )}
@@ -38,19 +38,19 @@ export default function GitHubRepo(): JSX.Element {
       {!showLoading && showFirstBubble && (
         <div className="chat chat-start">
           <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
-          <div className="chat-bubble bg-neutral my-4">
+          <div className="chat-bubble bg-neutral my-3">
                     <div className="join join-vertical">
                         <button className="btn join-item bg-secondary text-xs md:text-base text-black border-none hover:bg-yellow-300">
                             <a href="https://github.com/gregoryfoo95/LSS-currency-ts" target="_blank" rel="noopener noreferrer"> 
                                 <span className="font-extrabold">RSAF</span> - Currency Tracking for Aircrew
                             </a>
                         </button>
-                        <button className="btn join-item bg-accent text-xs md:text-base text-black border-none hover:bg-yellow-300">
+                        <button className="btn join-item bg-cyan-200 text-xs md:text-base text-black border-none hover:bg-yellow-300">
                             <a href="https://github.com/gregoryfoo95/MERN_Pharmacy_App_Better_Life" target="_blank" rel="noopener noreferrer"> 
                             <span className="font-extrabold">BetterLife</span> - Pharmacy Management App
                             </a>
                         </button>
-                        <button className="btn join-item bg-cyan-400 text-xs md:text-base text-black border-none hover:bg-yellow-300">
+                        <button className="btn join-item bg-secondary text-xs md:text-base text-black border-none hover:bg-yellow-300">
                             <a href="https://github.com/gregoryfoo95/SaveLah" target="_blank" rel="noopener noreferrer"> 
                             <span className="font-extrabold">SaveLah</span> - Budgeting and Expense Tracking App 
                             </a>
