@@ -23,7 +23,7 @@ export default function GitHubRepo(): JSX.Element {
       {showFirstBubble && (
         <div className="chat chat-end text-left">
           <div className="chat-header text-sm md:text-xl font-extrabold">You</div>
-          <div className="chat-bubble bg-primary my-3 text-black font-bold">
+          <div className="chat-bubble text-sm md:text-lg bg-primary my-3 text-black font-bold">
             Any <span className="text-red-800">technical projects</span> that you've done?
           </div>
         </div>
@@ -38,7 +38,7 @@ export default function GitHubRepo(): JSX.Element {
       {!showLoading && showFirstBubble && (
         <div className="chat chat-start">
           <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
-          <div className="chat-bubble bg-neutral my-3">
+          <div className="chat-bubble text-sm md:text-lg bg-neutral my-3">
                     <div className="join join-vertical">
                         <button className="btn join-item bg-secondary text-xs md:text-base text-black border-none hover:bg-yellow-300">
                             <a href="https://github.com/gregoryfoo95/LSS-currency-ts" target="_blank" rel="noopener noreferrer"> 

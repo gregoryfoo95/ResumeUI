@@ -23,7 +23,7 @@ export default function Education(): JSX.Element {
       {showFirstBubble && (
         <div className="chat chat-end text-left">
           <div className="chat-header text-sm md:text-xl font-extrabold">You</div>
-          <div className="chat-bubble bg-primary my-3 text-black font-bold">
+          <div className="chat-bubble text-sm md:text-lg bg-primary my-3 text-black font-bold">
             Could you tell me more about your{" "}
             <span className="text-red-800">education</span>?
           </div>
@@ -39,7 +39,7 @@ export default function Education(): JSX.Element {
       {!showLoading && showFirstBubble && (
         <div className="chat chat-start">
           <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
-          <div className="chat-bubble bg-neutral my-3">
+          <div className="chat-bubble text-sm md:text-lg bg-neutral my-3">
             <div className="card w-full bg-neutral text-left font-bold">
               <figure className="xs:w-36 sm:w-52 md:w-96 self-center bg-white">
                 <img src={ImperialCollege} alt="ICL"/>
@@ -75,7 +75,7 @@ export default function Education(): JSX.Element {
             </div>
           </div>
 
-          <div className="chat-bubble bg-neutral my-4">
+          <div className="chat-bubble text-sm md:text-lg bg-neutral my-4">
             <div className="card w-full bg-neutral text-left">
               <figure className="xs:w-36 sm:w-52 md:w-96 self-center bg-white">
                 <img src={NTU} alt="NTU" />

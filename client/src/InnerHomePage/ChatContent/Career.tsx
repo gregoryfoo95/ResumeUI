@@ -23,7 +23,7 @@ export default function Career(): JSX.Element {
       {showFirstBubble && (
         <div className="chat chat-end text-left ">
           <div className="chat-header text-sm md:text-xl">You</div>
-          <div className="chat-bubble bg-primary my-3 text-black font-bold">
+          <div className="chat-bubble text-sm md:text-lg bg-primary my-3 text-black font-bold">
             Share with me your{" "}
             <span className="text-red-800">career</span> journey so
             far!
@@ -41,12 +41,12 @@ export default function Career(): JSX.Element {
         <div className="chat chat-start">
           <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
           <div className="chat-bubble bg-neutral my-3">
-            <div className="card w-full bg-neutral text-left font-bold">
+            <div className="card w-full text-sm md:text-lg bg-neutral text-left font-bold">
               <figure className="xs:w-36 sm:w-52 md:w-96 self-center">
                 <img src={RSAF} alt="RSAF" />
               </figure>
               <div className="flex flex-col">
-                <div className="card-body">
+                <div className="card-body text-xs md:text-lg">
                   <h2 className="card-title text-amber-300">
                     Republic of Singapore Air Force (RSAF)
                   </h2>
