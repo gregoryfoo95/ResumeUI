@@ -40,7 +40,7 @@ export default function TechStack(): JSX.Element {
         <div className="chat chat-start">
           <div className="chat-header text-sm md:text-xl font-extrabold">Gregory</div>
           <div className="chat-bubble bg-neutral my-3">
-            <div className="card w-full md:w-96 bg-neutral text-left">
+            <div className="card w-full md:w-96 bg-neutral text-left leading-relaxed">
               <figure className="place-self-start mx-8">
                 <img
                   className="w-20 h-20 lg:w-35 lg:h-35"
@@ -48,7 +48,7 @@ export default function TechStack(): JSX.Element {
                   alt="RSAF"
                 />
               </figure>
-              <div className="card-body px-3 ">
+              <div className="card-body px-3 px-0">
                 <h2 className="card-title text-amber-300 text-md md:text-xl">
                   Tech Stacks
                 </h2>

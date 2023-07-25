@@ -46,8 +46,8 @@ export default function Career(): JSX.Element {
                 <img src={RSAF} alt="RSAF" />
               </figure>
               <div className="flex flex-col">
-                <div className="card-body text-xs md:text-lg m-auto ">
-                  <h2 className="card-title text-sm lg:text-2xl text-amber-300">
+                <div className="card-body text-xs md:text-lg m-auto leading-relaxed px-0">
+                  <h2 className="card-title text-sm md:text-xl lg:text-2xl text-amber-300">
                     Republic of Singapore Air Force (RSAF)
                   </h2>
                   <p className="underline">Roles</p>

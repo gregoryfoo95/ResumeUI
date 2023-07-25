@@ -44,7 +44,7 @@ export default function Education(): JSX.Element {
               <figure className="w-36 sm:w-60 md:w-96 self-center bg-white">
                 <img src={ImperialCollege} alt="ICL"/>
               </figure>
-              <div className="card-body text-white font-bold">
+              <div className="card-body text-white font-bold leading-relaxed px-0">
                 <h2 className="card-title text-amber-300 text-sm lg:text-2xl">
                   MSc Advanced Aeronautical Engineering - Imperial College
                   London
@@ -80,7 +80,7 @@ export default function Education(): JSX.Element {
               <figure className="w-36 sm:w-60 md:w-96 self-center bg-white">
                 <img src={NTU} alt="NTU" />
               </figure>
-              <div className="card-body text-white font-bold">
+              <div className="card-body text-white font-bold px-0">
                 <h2 className="card-title text-amber-300 text-sm lg:text-2xl">
                   BEng Aerospace Engineering, Nanyang Technological University
                 </h2>
