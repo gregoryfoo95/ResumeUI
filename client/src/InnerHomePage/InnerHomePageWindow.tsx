@@ -8,12 +8,18 @@ import Education from "./ChatContent/Education";
 import Career from "./ChatContent/Career";
 import TechStack from "./ChatContent/TechStack";
 import ChatNavBar from "./ChatNavBar";
+import ScrollToTop from "./ChatContent/ScrollToTop";
+
 export default function InnerHomePageWindow(): JSX.Element {
     const [activeComponents, setActiveComponents] = useState<ActiveComponent[]>([]);
 
   const handlePromptClick = (component: ActiveComponent) => {
     setActiveComponents((prevActiveComponents) => [...prevActiveComponents, component]);
     scrollToSection(component);
+  };
+
+  const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const scrollToSection = (component: ActiveComponent) => {
@@ -40,7 +46,7 @@ export default function InnerHomePageWindow(): JSX.Element {
         return '';
     }
   };
-  
+
   const renderComponent = (component: ActiveComponent) => {
     switch (component) {
       case ActiveComponent.AboutMe:
@@ -62,12 +68,14 @@ export default function InnerHomePageWindow(): JSX.Element {
     <div className="mockup-window bg-base-300 overflow-y">
       <div className="flex flex-col justify-center px-0.5 pb-8 bg-base-200 gap-4 lg:text-lg sm:text-xs">
         <ChatNavBar/>
-        <div className="self-center">
+        <div className="self-center ">
             <ConvoStarter/>
           {activeComponents.map((component, index) => (
             <div key={index}>{renderComponent(component)}</div>
           ))}
-          <div className="divider bg-slate-700 h-0.5 "></div> 
+          <div className="divider bg-slate-700 h-0.5"></div> 
+          <ScrollToTop handleScrollToTop={handleScrollToTop} />
+          <br></br>
           <PromptWindow onPromptClick={handlePromptClick} activeComponents={activeComponents} />
         </div>
       </div>

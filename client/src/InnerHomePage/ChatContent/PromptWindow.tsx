@@ -6,7 +6,8 @@ import { ActiveComponent } from "../../@types/ActiveComponent";
   };
 
 export default function PromptWindow({onPromptClick, activeComponents}: PromptWindowProps): JSX.Element {
-    return (
+    
+  return (
       <div className="flex flex-col gap-y-2 px-10 font-bold text-xs sm:text-sm md:text-lg ">
         {!activeComponents.includes(ActiveComponent.AboutMe) && (
           <div
