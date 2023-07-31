@@ -13,8 +13,34 @@ export default function InnerHomePageWindow(): JSX.Element {
 
   const handlePromptClick = (component: ActiveComponent) => {
     setActiveComponents((prevActiveComponents) => [...prevActiveComponents, component]);
+    scrollToSection(component);
   };
 
+  const scrollToSection = (component: ActiveComponent) => {
+    const targetSection = document.getElementById(getSectionId(component));
+    if (targetSection) {
+      const offsetTop = targetSection.offsetTop;
+      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+    }
+  };
+  
+  const getSectionId = (component: ActiveComponent): string => {
+    switch (component) {
+      case ActiveComponent.AboutMe:
+        return 'about-me-section';
+      case ActiveComponent.TechnicalExperience:
+        return 'technical-experience-section';
+      case ActiveComponent.Study:
+        return 'study-section';
+      case ActiveComponent.CareerExperience:
+        return 'career-experience-section';
+      case ActiveComponent.TechStack:
+        return 'tech-stack-section';
+      default:
+        return '';
+    }
+  };
+  
   const renderComponent = (component: ActiveComponent) => {
     switch (component) {
       case ActiveComponent.AboutMe:
@@ -41,9 +67,8 @@ export default function InnerHomePageWindow(): JSX.Element {
           {activeComponents.map((component, index) => (
             <div key={index}>{renderComponent(component)}</div>
           ))}
-          <br></br>
           <div className="divider bg-slate-700 h-0.5 "></div> 
-          <PromptWindow onPromptClick={handlePromptClick} />
+          <PromptWindow onPromptClick={handlePromptClick} activeComponents={activeComponents} />
         </div>
       </div>
     </div>
