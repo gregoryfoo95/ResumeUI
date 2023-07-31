@@ -74,9 +74,10 @@ export default function InnerHomePageWindow(): JSX.Element {
             <div key={index}>{renderComponent(component)}</div>
           ))}
           <div className="divider bg-slate-700 h-0.5"></div> 
-          <ScrollToTop handleScrollToTop={handleScrollToTop} />
-          <br></br>
           <PromptWindow onPromptClick={handlePromptClick} activeComponents={activeComponents} />
+          <div className="fixed bottom-4 right-4 left-4">
+            <ScrollToTop handleScrollToTop={handleScrollToTop} />
+          </div>
         </div>
       </div>
     </div>
