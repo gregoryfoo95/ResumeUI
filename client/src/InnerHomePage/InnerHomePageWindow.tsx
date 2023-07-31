@@ -41,9 +41,8 @@ export default function InnerHomePageWindow(): JSX.Element {
           {activeComponents.map((component, index) => (
             <div key={index}>{renderComponent(component)}</div>
           ))}
-          <br></br>
           <div className="divider bg-slate-700 h-0.5 "></div> 
-          <PromptWindow onPromptClick={handlePromptClick} />
+          <PromptWindow onPromptClick={handlePromptClick} activeComponents={activeComponents} />
         </div>
       </div>
     </div>
