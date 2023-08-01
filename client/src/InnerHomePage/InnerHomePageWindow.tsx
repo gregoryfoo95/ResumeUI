@@ -8,7 +8,8 @@ import Education from "./ChatContent/Education";
 import Career from "./ChatContent/Career";
 import TechStack from "./ChatContent/TechStack";
 import ChatNavBar from "./ChatNavBar";
-import ScrollToTop from "./ChatContent/ScrollToTop";
+import ScrollToTop from "./ScrollToTop";
+import RefreshChatWindow from "./RefreshChatWindow";
 
 export default function InnerHomePageWindow(): JSX.Element {
     const [activeComponents, setActiveComponents] = useState<ActiveComponent[]>([]);
@@ -18,6 +19,9 @@ export default function InnerHomePageWindow(): JSX.Element {
     scrollToSection(component);
   };
 
+  const handleRefresh = () => {
+    setActiveComponents([]);
+  }
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -73,6 +77,7 @@ export default function InnerHomePageWindow(): JSX.Element {
           {activeComponents.map((component, index) => (
             <div key={index}>{renderComponent(component)}</div>
           ))}
+          <RefreshChatWindow handleRefresh={handleRefresh}/>
           <div className="divider bg-slate-700 h-0.5"></div> 
           <PromptWindow onPromptClick={handlePromptClick} activeComponents={activeComponents} />
           <div className="fixed bottom-4 right-4 left-4">
