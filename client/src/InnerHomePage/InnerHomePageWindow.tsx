@@ -22,6 +22,7 @@ export default function InnerHomePageWindow(): JSX.Element {
   const handleRefresh = () => {
     setActiveComponents([]);
   }
+
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -29,23 +30,24 @@ export default function InnerHomePageWindow(): JSX.Element {
   const scrollToSection = (component: ActiveComponent) => {
     const targetSection = document.getElementById(getSectionId(component));
     if (targetSection) {
-      const offsetTop = targetSection.offsetTop;
-      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+      const scrollPosition = targetSection.offsetTop;
+      window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
     }
   };
+  
   
   const getSectionId = (component: ActiveComponent): string => {
     switch (component) {
       case ActiveComponent.AboutMe:
-        return 'about-me-section';
+        return 'aboutMe';
       case ActiveComponent.TechnicalExperience:
-        return 'technical-experience-section';
+        return 'technicalExperience';
       case ActiveComponent.Study:
-        return 'study-section';
+        return 'study';
       case ActiveComponent.CareerExperience:
-        return 'career-experience-section';
+        return 'careerExperience';
       case ActiveComponent.TechStack:
-        return 'tech-stack-section';
+        return 'techStack';
       default:
         return '';
     }

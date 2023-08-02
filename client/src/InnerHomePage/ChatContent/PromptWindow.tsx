@@ -13,7 +13,7 @@ export default function PromptWindow({onPromptClick, activeComponents}: PromptWi
           <div
             className="grid w-full h-20 rounded-full px-4 border-4 border-primary bg-base-300 text-white place-content-center cursor-pointer text-xs md:text-lg"
             onClick={() => onPromptClick(ActiveComponent.AboutMe)}
-            id="about-me-section"
+            id="aboutMe"
           >
             Tell me more about yourself!
           </div>
@@ -23,7 +23,7 @@ export default function PromptWindow({onPromptClick, activeComponents}: PromptWi
           <div
             className="grid w-full h-20 rounded-full px-4 border-4 border-primary bg-base-300 text-white place-content-center cursor-pointer text-xs md:text-lg"
             onClick={() => onPromptClick(ActiveComponent.TechnicalExperience)}
-            id="technical-experience-section"
+            id="technicalExperience"
           >
             Could you provide concrete examples of your technical capabilities?
           </div>
@@ -33,7 +33,7 @@ export default function PromptWindow({onPromptClick, activeComponents}: PromptWi
           <div
             className="grid w-full h-20 rounded-full px-4 border-4 border-primary bg-base-300 text-white place-content-center cursor-pointer text-xs md:text-lg"
             onClick={() => onPromptClick(ActiveComponent.Study)}
-            id="study-section"
+            id="study"
           >
             Tell me more about your education!
           </div>
@@ -43,7 +43,7 @@ export default function PromptWindow({onPromptClick, activeComponents}: PromptWi
         <div
           className="grid w-full h-20 rounded-full px-4 border-4 border-primary bg-base-300 text-white place-content-center cursor-pointer text-xs md:text-lg"
           onClick={() => onPromptClick(ActiveComponent.CareerExperience)}
-          id="career-experience-section"
+          id="careerExperience"
         >
           Expand more on your career experience!
         </div>
@@ -53,7 +53,7 @@ export default function PromptWindow({onPromptClick, activeComponents}: PromptWi
         <div
           className="grid w-full h-20 rounded-full px-4 border-4 border-primary bg-base-300 text-white place-content-center cursor-pointer text-xs md:text-lg"
           onClick={() => onPromptClick(ActiveComponent.TechStack)}
-          id="tech-stack-section"
+          id="techStack"
         >
           Let me know your tech stacks!
         </div>
