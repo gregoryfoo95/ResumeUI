@@ -1,4 +1,4 @@
-import UpButton from "../../assets/icons/UpButton.svg";
+import UpButton from "../assets/icons/UpButton.svg";
 
 type ScrollToTopProps = {
     handleScrollToTop: () => void;

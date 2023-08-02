@@ -8,7 +8,8 @@ import Education from "./ChatContent/Education";
 import Career from "./ChatContent/Career";
 import TechStack from "./ChatContent/TechStack";
 import ChatNavBar from "./ChatNavBar";
-import ScrollToTop from "./ChatContent/ScrollToTop";
+import ScrollToTop from "./ScrollToTop";
+import RefreshChatWindow from "./RefreshChatWindow";
 
 export default function InnerHomePageWindow(): JSX.Element {
     const [activeComponents, setActiveComponents] = useState<ActiveComponent[]>([]);
@@ -18,6 +19,10 @@ export default function InnerHomePageWindow(): JSX.Element {
     scrollToSection(component);
   };
 
+  const handleRefresh = () => {
+    setActiveComponents([]);
+  }
+
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -25,23 +30,24 @@ export default function InnerHomePageWindow(): JSX.Element {
   const scrollToSection = (component: ActiveComponent) => {
     const targetSection = document.getElementById(getSectionId(component));
     if (targetSection) {
-      const offsetTop = targetSection.offsetTop;
-      window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+      const scrollPosition = targetSection.offsetTop;
+      window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
     }
   };
+  
   
   const getSectionId = (component: ActiveComponent): string => {
     switch (component) {
       case ActiveComponent.AboutMe:
-        return 'about-me-section';
+        return 'aboutMe';
       case ActiveComponent.TechnicalExperience:
-        return 'technical-experience-section';
+        return 'technicalExperience';
       case ActiveComponent.Study:
-        return 'study-section';
+        return 'study';
       case ActiveComponent.CareerExperience:
-        return 'career-experience-section';
+        return 'careerExperience';
       case ActiveComponent.TechStack:
-        return 'tech-stack-section';
+        return 'techStack';
       default:
         return '';
     }
@@ -73,6 +79,7 @@ export default function InnerHomePageWindow(): JSX.Element {
           {activeComponents.map((component, index) => (
             <div key={index}>{renderComponent(component)}</div>
           ))}
+          <RefreshChatWindow handleRefresh={handleRefresh}/>
           <div className="divider bg-slate-700 h-0.5"></div> 
           <PromptWindow onPromptClick={handlePromptClick} activeComponents={activeComponents} />
           <div className="fixed bottom-4 right-4 left-4">
