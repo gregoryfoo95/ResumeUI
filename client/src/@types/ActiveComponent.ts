@@ -4,4 +4,5 @@ export enum ActiveComponent {
   Study = "study",
   CareerExperience = "careerExperience",
   TechStack = "techStack",
+  MediaCoverage = "mediaCoverage",
 }

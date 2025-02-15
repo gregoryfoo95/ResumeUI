@@ -10,6 +10,7 @@ import TechStack from "./ChatContent/TechStack";
 import ChatNavBar from "./ChatNavBar";
 import ScrollToTop from "./ScrollToTop";
 import RefreshChatWindow from "./RefreshChatWindow";
+import MediaCoverage from "./ChatContent/MediaCoverage";
 
 export default function InnerHomePageWindow(): JSX.Element {
     const [activeComponents, setActiveComponents] = useState<ActiveComponent[]>([]);
@@ -48,6 +49,8 @@ export default function InnerHomePageWindow(): JSX.Element {
         return 'careerExperience';
       case ActiveComponent.TechStack:
         return 'techStack';
+      case ActiveComponent.MediaCoverage:
+        return 'mediaCoverage';
       default:
         return '';
     }
@@ -65,6 +68,8 @@ export default function InnerHomePageWindow(): JSX.Element {
         return <Career />;
       case ActiveComponent.TechStack:
         return <TechStack />;
+      case ActiveComponent.MediaCoverage:
+        return <MediaCoverage />;
       default:
         return null;
     }
