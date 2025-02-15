@@ -59,6 +59,15 @@ export default function PromptWindow({onPromptClick, activeComponents}: PromptWi
         </div>
         )}
 
+        {!activeComponents.includes(ActiveComponent.MediaCoverage) && (
+          <div
+            className="grid w-full h-20 rounded-full px-4 border-4 border-primary bg-base-300 text-white place-content-center cursor-pointer text-xs md:text-lg"
+            onClick={() => onPromptClick(ActiveComponent.MediaCoverage)}
+            id="mediaCoverage"  
+          >
+            Show me your media coverage!
+          </div>
+        )}
       </div>
     );
 }
