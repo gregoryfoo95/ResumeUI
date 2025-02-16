@@ -9,16 +9,16 @@ export default {
         xs: "425px",
       },
       keyframes: {
-        'slide-in-and-out': {
-          '0%': { transform: 'translateY(-100%)' },
-          '15%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(0)' },
-          '70%': { transform: 'translateY(-100%)'},
-          '100%': { transform: 'translateY(-100%)' },
+        "slide-in-and-out": {
+          "0%": { transform: "translateY(-100%)" },
+          "15%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(0)" },
+          "70%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(-100%)" },
         },
       },
       animation: {
-        'slide-in-and-out': 'slide-in-and-out 4s linear',
+        "slide-in-and-out": "slide-in-and-out 4s linear",
       },
     },
     fontFamily: {
@@ -27,9 +27,10 @@ export default {
   },
   daisyui: {
     themes: [
-      "forest"
+      "forest",
       //"synthwave"
     ],
   },
+  /* eslint-disable no-undef */
   plugins: [require("daisyui")],
 };

@@ -1,9 +1,8 @@
-
-import HomePageRoutes from './HomePage/HomePageRoutes';
-import InnerHomePageRoutes from './InnerHomePage/InnerHomePageRoutes';
+import HomePageRoutes from "./HomePage/HomePageRoutes";
+import InnerHomePageRoutes from "./InnerHomePage/InnerHomePageRoutes";
 import { Routes, Route } from "react-router-dom";
 import { useState, createContext } from "react";
-import './App.css';
+import "./App.css";
 
 export const HomePageVisibilityContext = createContext<React.Dispatch<
   React.SetStateAction<boolean>
@@ -16,16 +15,16 @@ function App() {
     <HomePageVisibilityContext.Provider value={setHomePageVisibility}>
       <Routes>
         {homePageVisibility ? (
-          <Route path="/*" element={<HomePageRoutes/>} />
+          <Route path="/*" element={<HomePageRoutes />} />
         ) : (
           <>
-            <Route path="/*" element={<HomePageRoutes/>} />
+            <Route path="/*" element={<HomePageRoutes />} />
             <Route path="/Home/*" element={<InnerHomePageRoutes />} />
           </>
         )}
-      </Routes> 
+      </Routes>
     </HomePageVisibilityContext.Provider>
   );
 }
 
-export default App
+export default App;

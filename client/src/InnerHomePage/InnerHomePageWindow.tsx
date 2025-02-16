@@ -1,7 +1,7 @@
 import AboutMeText from "./ChatContent/AboutMeText";
 import GitHubRepo from "./ChatContent/GitHubRepo";
 import PromptWindow from "./ChatContent/PromptWindow";
-import {useState} from 'react';
+import { useState } from "react";
 import { ActiveComponent } from "../@types/ActiveComponent";
 import ConvoStarter from "./ChatContent/ConvoStarter";
 import Education from "./ChatContent/Education";
@@ -13,46 +13,50 @@ import RefreshChatWindow from "./RefreshChatWindow";
 import MediaCoverage from "./ChatContent/MediaCoverage";
 
 export default function InnerHomePageWindow(): JSX.Element {
-    const [activeComponents, setActiveComponents] = useState<ActiveComponent[]>([]);
+  const [activeComponents, setActiveComponents] = useState<ActiveComponent[]>(
+    [],
+  );
 
   const handlePromptClick = (component: ActiveComponent) => {
-    setActiveComponents((prevActiveComponents) => [...prevActiveComponents, component]);
+    setActiveComponents((prevActiveComponents) => [
+      ...prevActiveComponents,
+      component,
+    ]);
     scrollToSection(component);
   };
 
   const handleRefresh = () => {
     setActiveComponents([]);
-  }
+  };
 
   const handleScrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const scrollToSection = (component: ActiveComponent) => {
     const targetSection = document.getElementById(getSectionId(component));
     if (targetSection) {
       const scrollPosition = targetSection.offsetTop;
-      window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
+      window.scrollTo({ top: scrollPosition, behavior: "smooth" });
     }
   };
-  
-  
+
   const getSectionId = (component: ActiveComponent): string => {
     switch (component) {
       case ActiveComponent.AboutMe:
-        return 'aboutMe';
+        return "aboutMe";
       case ActiveComponent.TechnicalExperience:
-        return 'technicalExperience';
+        return "technicalExperience";
       case ActiveComponent.Study:
-        return 'study';
+        return "study";
       case ActiveComponent.CareerExperience:
-        return 'careerExperience';
+        return "careerExperience";
       case ActiveComponent.TechStack:
-        return 'techStack';
+        return "techStack";
       case ActiveComponent.MediaCoverage:
-        return 'mediaCoverage';
+        return "mediaCoverage";
       default:
-        return '';
+        return "";
     }
   };
 
@@ -63,7 +67,7 @@ export default function InnerHomePageWindow(): JSX.Element {
       case ActiveComponent.TechnicalExperience:
         return <GitHubRepo />;
       case ActiveComponent.Study:
-        return <Education/>;
+        return <Education />;
       case ActiveComponent.CareerExperience:
         return <Career />;
       case ActiveComponent.TechStack:
@@ -78,15 +82,18 @@ export default function InnerHomePageWindow(): JSX.Element {
   return (
     <div className="mockup-window bg-base-300 overflow-y">
       <div className="flex flex-col justify-center px-0.5 pb-8 bg-base-200 gap-4 lg:text-lg sm:text-xs">
-        <ChatNavBar/>
+        <ChatNavBar />
         <div className="self-center ">
-            <ConvoStarter/>
+          <ConvoStarter />
           {activeComponents.map((component, index) => (
             <div key={index}>{renderComponent(component)}</div>
           ))}
-          <RefreshChatWindow handleRefresh={handleRefresh}/>
-          <div className="divider bg-slate-700 h-0.5"></div> 
-          <PromptWindow onPromptClick={handlePromptClick} activeComponents={activeComponents} />
+          <RefreshChatWindow handleRefresh={handleRefresh} />
+          <div className="divider bg-slate-700 h-0.5"></div>
+          <PromptWindow
+            onPromptClick={handlePromptClick}
+            activeComponents={activeComponents}
+          />
           <div className="fixed bottom-4 right-4 left-4">
             <ScrollToTop handleScrollToTop={handleScrollToTop} />
           </div>

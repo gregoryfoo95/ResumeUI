@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 export default function SuccessHack(): JSX.Element {
   const [show, setShow] = useState(true);
