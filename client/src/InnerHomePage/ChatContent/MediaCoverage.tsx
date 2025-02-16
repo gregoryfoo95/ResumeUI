@@ -118,7 +118,7 @@ export default function MediaCoverage(): JSX.Element {
               exit: { opacity: 0, y: 20 },
             }}
           >
-            <div className="chat-header text-sm md:text-lg font-bold text-gray-700">
+            <div className="chat-header text-sm md:text-xl font-extrabold">
               Gregory
             </div>
 
