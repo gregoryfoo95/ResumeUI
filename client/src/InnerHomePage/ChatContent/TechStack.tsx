@@ -83,7 +83,7 @@ export default function TechStack(): JSX.Element {
           className="flex px-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0 }}
         >
           <div className="loading loading-dots loading-lg self-start"></div>
         </motion.div>
