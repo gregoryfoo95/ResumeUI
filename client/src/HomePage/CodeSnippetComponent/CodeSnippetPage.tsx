@@ -4,6 +4,9 @@ type Props = {
   codeBlock: codeBlockProps[];
   setCodeBlock?: React.Dispatch<React.SetStateAction<codeBlockProps[]>>;
 };
+
+const LONG_DELAY_FACTOR = 40;
+const SHORT_DELAY_FACTOR = 15;
 export default function CodeSnippetPage({ codeBlock }: Props): JSX.Element {
   const [currentLine, setCurrentLine] = useState(0);
 
@@ -14,8 +17,8 @@ export default function CodeSnippetPage({ codeBlock }: Props): JSX.Element {
           setCurrentLine((prevLine) => prevLine + 1);
         },
         currentLine === 0
-          ? codeBlock[currentLine].code.length * 40
-          : codeBlock[currentLine].code.length * 15,
+          ? codeBlock[currentLine].code.length * LONG_DELAY_FACTOR
+          : codeBlock[currentLine].code.length * SHORT_DELAY_FACTOR,
       );
 
       return () => clearTimeout(timeout);
@@ -60,7 +63,10 @@ function TypeWriter({ code, prefix, color, shouldType }: codeBlockProps) {
   }, [code, currentIndex]);
 
   return (
-    <pre className={color}>
+    <pre 
+      className={`${color} whitespace-pre-wrap break-words`} 
+      style={{ textIndent: "-2ch"}}
+    >
       <code>
         {prefix}
         {shouldType ? currentText : code}
