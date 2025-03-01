@@ -97,6 +97,9 @@ export default function InnerHomePageWindow(): JSX.Element {
           <div className="fixed bottom-4 right-4 left-4">
             <ScrollToTop handleScrollToTop={handleScrollToTop} />
           </div>
+          <div className="text-center text-gray-500 lg:text-xs sm:text-xs mt-8 border-t pt-4">
+            &copy; {new Date().getFullYear()} Gregory Foo All Rights Reserved. Unauthorized use, distribution, or reproduction of this content is strictly prohibited unless permission is sought.
+          </div>
         </div>
       </div>
     </div>
