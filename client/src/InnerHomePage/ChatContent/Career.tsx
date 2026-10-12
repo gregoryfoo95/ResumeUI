@@ -278,7 +278,7 @@ export default function Career(): JSX.Element {
                 {/* Stats */}
                 <ul
                   aria-label="Career highlights"
-                  className="mb-5 grid grid-cols-2 gap-2 md:grid-cols-4"
+                  className="mb-5 grid grid-cols-2 gap-2 md:grid-cols-4 [&>*:last-child:nth-child(odd)]:col-span-2 md:[&>*:last-child:nth-child(odd)]:col-span-1"
                 >
                   {stats.map((s, i) => (
                     <motion.li

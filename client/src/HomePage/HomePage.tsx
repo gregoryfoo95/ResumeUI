@@ -1,5 +1,6 @@
 import CodeSnippetPage from "./CodeSnippetComponent/CodeSnippetPage";
 import { applyTeam, loadTeam } from "../components/team";
+import { markIntroSeen } from "../components/introSeen";
 import CommandPromptField, { Team } from "./CodeSnippetComponent/CommandPromptField";
 import MatrixRain from "./CodeSnippetComponent/MatrixRain";
 import BootSequence from "./CodeSnippetComponent/BootSequence";
@@ -35,6 +36,11 @@ export default function HomePage(): JSX.Element {
   useEffect(() => {
     if (booted) window.scrollTo({ top: document.documentElement.scrollHeight, behavior: reduce ? "auto" : "smooth" });
   }, [booted, codeBlock.length, reduce]);
+
+  // Finishing or skipping the intro counts as having seen it for this tab session.
+  useEffect(() => {
+    if (booted) markIntroSeen();
+  }, [booted]);
 
   const finishBoot = useCallback(() => setBooted(true), []);
 

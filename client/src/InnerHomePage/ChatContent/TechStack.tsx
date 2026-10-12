@@ -117,7 +117,7 @@ export default function TechStack(): JSX.Element {
                     tabIndex={selected ? 0 : -1}
                     onClick={() => setActive(i)}
                     onKeyDown={(e) => onKeyDown(e, i)}
-                    className={`relative shrink-0 rounded-full px-3 py-1 text-xs md:text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-300 ${
+                    className={`relative min-h-[44px] shrink-0 rounded-full px-3 py-1 text-xs md:text-sm font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-300 ${
                       selected ? "text-black" : "text-base-content hover:bg-base-300"
                     }`}
                   >
@@ -154,7 +154,7 @@ export default function TechStack(): JSX.Element {
                         type="button"
                         onClick={() => setQuery((cur) => (cur === c.label ? "" : c.label))}
                         title={active === 0 ? c.category : undefined}
-                        className="badge badge-outline badge-secondary h-auto max-w-full whitespace-normal break-words py-1 text-xs md:text-sm transition-all duration-200 hover:bg-secondary hover:text-black hover:shadow-lg hover:shadow-secondary/60 hover:-translate-y-0.5 focus-visible:bg-secondary focus-visible:text-black focus-visible:shadow-lg focus-visible:shadow-secondary/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-300"
+                        className="badge badge-outline badge-secondary h-auto max-w-full [@media(pointer:coarse)]:min-h-[40px] whitespace-normal break-words py-1 text-xs md:text-sm transition-all duration-200 hover:bg-secondary hover:text-black hover:shadow-lg hover:shadow-secondary/60 hover:-translate-y-0.5 focus-visible:bg-secondary focus-visible:text-black focus-visible:shadow-lg focus-visible:shadow-secondary/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-300"
                       >
                         {c.label}
                       </button>

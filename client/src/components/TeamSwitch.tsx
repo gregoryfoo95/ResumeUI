@@ -33,7 +33,7 @@ export default function TeamSwitch(): JSX.Element {
             aria-checked={team === t.id}
             aria-label={t.id === "forest" ? "Forest (default)" : `${t.label} team`}
             onClick={() => applyTeam(t.id)}
-            className={`flex flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-full px-2 py-1.5 text-[11px] font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-300 ${
+            className={`flex min-h-[44px] flex-1 items-center justify-center gap-1.5 whitespace-nowrap rounded-full px-2 py-1.5 text-[11px] font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-300 ${
               team === t.id ? "bg-primary text-black" : "text-base-content/70 hover:text-base-content"
             }`}
           >

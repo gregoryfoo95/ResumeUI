@@ -20,7 +20,7 @@ function Thesis({ text, reduce }: { text: string; reduce: boolean }): JSX.Elemen
         aria-expanded={open}
         aria-controls={id}
         onClick={() => setOpen((o) => !o)}
-        className="flex items-center gap-2 rounded-md px-1 py-1 text-xs font-bold text-secondary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 md:text-base"
+        className="flex min-h-[44px] items-center gap-2 rounded-md px-1 py-1 text-xs font-bold text-secondary underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 md:text-base"
       >
         <motion.span
           aria-hidden="true"

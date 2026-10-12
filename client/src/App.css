@@ -82,3 +82,14 @@ body {
   --a: 20 95% 55%;
   --af: 20 90% 42%;
 }
+
+/* iOS Safari zooms the page when a focused field's font-size is under 16px.
+   Keep fields at 16px on touch-sized screens instead of locking zoom in the
+   viewport meta tag (which would break pinch-zoom accessibility). */
+@media (max-width: 1023px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}

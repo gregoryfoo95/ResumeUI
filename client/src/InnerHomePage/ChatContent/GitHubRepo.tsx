@@ -215,7 +215,7 @@ function ProjectModal({
             type="button"
             onClick={onClose}
             aria-label="Close project details"
-            className="btn btn-circle btn-ghost btn-sm shrink-0"
+            className="btn btn-circle btn-ghost btn-md shrink-0"
           >
             <span aria-hidden="true">✕</span>
           </button>
@@ -231,14 +231,14 @@ function ProjectModal({
         <StackChips stack={project.stack} size="sm" />
         <div className="mt-5 flex flex-wrap gap-2">
           {project.links?.map((l) => (
-            <SafeLink key={l.url} href={l.url} className="btn btn-accent btn-sm text-black">
+            <SafeLink key={l.url} href={l.url} className="btn btn-accent btn-sm min-h-[44px] text-black">
               {l.label}
             </SafeLink>
           ))}
-          <SafeLink href={profile.links.github} className="btn btn-primary btn-sm text-black">
+          <SafeLink href={profile.links.github} className="btn btn-primary btn-sm min-h-[44px] text-black">
             GitHub
           </SafeLink>
-          <SafeLink href={profile.links.linkedin} className="btn btn-outline btn-secondary btn-sm">
+          <SafeLink href={profile.links.linkedin} className="btn btn-outline btn-secondary btn-sm min-h-[44px]">
             LinkedIn
           </SafeLink>
         </div>
@@ -311,10 +311,10 @@ export default function GitHubRepo(): JSX.Element {
               ))}
             </ul>
             <div className="mt-4 flex flex-wrap gap-2">
-              <SafeLink href={profile.links.github} className="btn btn-primary btn-sm text-black">
+              <SafeLink href={profile.links.github} className="btn btn-primary btn-sm min-h-[44px] text-black">
                 More on GitHub
               </SafeLink>
-              <SafeLink href={profile.links.linkedin} className="btn btn-outline btn-secondary btn-sm">
+              <SafeLink href={profile.links.linkedin} className="btn btn-outline btn-secondary btn-sm min-h-[44px]">
                 LinkedIn
               </SafeLink>
             </div>

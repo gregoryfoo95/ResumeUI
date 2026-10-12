@@ -122,7 +122,7 @@ export default function AboutMeText(): JSX.Element {
                   </span>
                 ))}
               </div>
-              <dl className="grid grid-cols-2 gap-2 sm:grid-cols-4" aria-label="Career highlights">
+              <dl className="grid grid-cols-2 gap-2 sm:grid-cols-4 [&>*:last-child:nth-child(odd)]:col-span-2 sm:[&>*:last-child:nth-child(odd)]:col-span-1" aria-label="Career highlights">
                 {stats.map((s) => (
                   <div key={s.label} className="min-w-0">
                     <CountUp stat={s} reduce={reduce} />

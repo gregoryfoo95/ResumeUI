@@ -53,7 +53,7 @@ export default function ChatNavBar(): JSX.Element {
       <button
         type="button"
         onClick={printResume}
-        className="btn btn-outline btn-primary btn-sm flex-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-300"
+        className="btn btn-outline btn-primary btn-sm min-h-[44px] flex-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-300"
         aria-label="Download resume as PDF"
       >
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
