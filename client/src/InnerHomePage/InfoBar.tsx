@@ -10,8 +10,8 @@ export default function InfoBar(): JSX.Element {
   ];
 
   return (
-    <div className="stats stats-vertical lg:stats-horizontal flex-col lg:flex-row gap-x-4 shadow ">
-      <div className="stat flex-1 min-w-0">
+    <div className="stats stats-vertical lg:stats-horizontal flex-col lg:flex-row gap-x-4 shadow w-full max-w-full overflow-x-hidden">
+      <div className="stat flex-1 min-w-0 max-w-full [grid-template-columns:minmax(0,1fr)_auto]">
         <div className="stat-figure text-secondary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -28,13 +28,13 @@ export default function InfoBar(): JSX.Element {
             />
           </svg>
         </div>
-        <div className="stat-title font-bold text-xl">Name</div>
-        <div className="stat-value text-2xl text-accent animate-pulse ">
+        <div className="stat-title whitespace-normal break-words text-xl font-bold">Name</div>
+        <div className="stat-value min-w-0 whitespace-normal text-2xl text-accent animate-pulse break-words">
           Gregory Foo
         </div>
       </div>
 
-      <div className="stat flex-2 flex-col justify-items-center">
+      <div className="stat flex-2 flex-col justify-items-center min-w-0 max-w-full [grid-template-columns:minmax(0,1fr)_auto]">
         <div className="stat-figure text-secondary ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -51,9 +51,9 @@ export default function InfoBar(): JSX.Element {
             />
           </svg>
         </div>
-        <div className="stat-title font-bold text-xl">Current Role</div>
+        <div className="stat-title whitespace-normal break-words text-xl font-bold">Current Role</div>
         {/* <div className="stat-value text-2xl text-accent animate-pulse">Software Engineer</div> */}
-        <div className="min-w-0 lg:w-[500px] ">
+        <div className="min-w-0 max-w-full overflow-hidden lg:w-[500px]">
           <InnerHomePageTypeWriter appendClass="" roles={roles} prefix="" />
         </div>
         <br></br>
@@ -62,7 +62,7 @@ export default function InfoBar(): JSX.Element {
         </div>
       </div>
 
-      <div className="stat flex-1 min-w-0">
+      <div className="stat flex-1 min-w-0 max-w-full [grid-template-columns:minmax(0,1fr)_auto]">
         <div className="stat-figure text-secondary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -79,8 +79,8 @@ export default function InfoBar(): JSX.Element {
             />
           </svg>
         </div>
-        <div className="stat-title font-bold text-xl">Email</div>
-        <div className="stat-value text-sm md:text-lg">
+        <div className="stat-title whitespace-normal break-words text-xl font-bold">Email</div>
+        <div className="stat-value min-w-0 whitespace-normal text-sm [overflow-wrap:anywhere] md:text-lg">
           gregoryfoo@hotmail.com
         </div>
       </div>

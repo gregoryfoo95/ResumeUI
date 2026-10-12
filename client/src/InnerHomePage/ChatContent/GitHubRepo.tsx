@@ -231,14 +231,14 @@ function ProjectModal({
         <StackChips stack={project.stack} size="sm" />
         <div className="mt-5 flex flex-wrap gap-2">
           {project.links?.map((l) => (
-            <SafeLink key={l.url} href={l.url} className="btn btn-accent btn-sm min-h-[44px] text-black">
+            <SafeLink key={l.url} href={l.url} className="btn btn-accent btn-sm h-auto min-h-[44px] max-w-full whitespace-normal py-2 text-black">
               {l.label}
             </SafeLink>
           ))}
-          <SafeLink href={profile.links.github} className="btn btn-primary btn-sm min-h-[44px] text-black">
+          <SafeLink href={profile.links.github} className="btn btn-primary btn-sm h-auto min-h-[44px] max-w-full whitespace-normal py-2 text-black">
             GitHub
           </SafeLink>
-          <SafeLink href={profile.links.linkedin} className="btn btn-outline btn-secondary btn-sm min-h-[44px]">
+          <SafeLink href={profile.links.linkedin} className="btn btn-outline btn-secondary btn-sm h-auto min-h-[44px] max-w-full whitespace-normal py-2">
             LinkedIn
           </SafeLink>
         </div>
@@ -311,10 +311,10 @@ export default function GitHubRepo(): JSX.Element {
               ))}
             </ul>
             <div className="mt-4 flex flex-wrap gap-2">
-              <SafeLink href={profile.links.github} className="btn btn-primary btn-sm min-h-[44px] text-black">
+              <SafeLink href={profile.links.github} className="btn btn-primary btn-sm h-auto min-h-[44px] max-w-full whitespace-normal py-2 text-black">
                 More on GitHub
               </SafeLink>
-              <SafeLink href={profile.links.linkedin} className="btn btn-outline btn-secondary btn-sm min-h-[44px]">
+              <SafeLink href={profile.links.linkedin} className="btn btn-outline btn-secondary btn-sm h-auto min-h-[44px] max-w-full whitespace-normal py-2">
                 LinkedIn
               </SafeLink>
             </div>

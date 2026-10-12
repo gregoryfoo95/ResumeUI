@@ -47,7 +47,7 @@ export default function TypedText({ text, speed = 35, instant = false, onDone, c
   const rest = words.slice(count).join(" ");
 
   return (
-    <span className={className}>
+    <span className={`${className ?? ""} [overflow-wrap:anywhere]`}>
       <span className="sr-only">{text}</span>
       <span aria-hidden="true">
         {shown}
