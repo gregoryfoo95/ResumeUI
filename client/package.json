@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "start": "node ../server/dist/server.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "framer-motion": "^12.4.3",

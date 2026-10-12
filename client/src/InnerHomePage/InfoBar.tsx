@@ -3,7 +3,8 @@ import role from "../@classes/role";
 
 export default function InfoBar(): JSX.Element {
   const roles = [
-    new role("a", "Full Stack Web Developer"),
+    new role("an", "Autonomy Technical Lead"),
+    new role("a", "Senior Software Engineer"),
     new role("an", "Aerospace Engineer"),
     new role("a", "RAiDer"),
   ];
@@ -57,7 +58,7 @@ export default function InfoBar(): JSX.Element {
         </div>
         <br></br>
         <div className="stat-desc text-success text-sm md:text-lg">
-          @RAiD/DSTA
+          @RAiD (RSAF)
         </div>
       </div>
 

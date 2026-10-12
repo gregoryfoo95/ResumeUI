@@ -1,142 +1,136 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
+import { motion, AnimatePresence, animate, useReducedMotion } from "framer-motion";
+import { profile, stats } from "../../data/profile";
+import type { Stat } from "../../data/profile";
+import TypedText from "../../components/TypedText";
+
+function CountUp({ stat, reduce }: { stat: Stat; reduce: boolean }): JSX.Element {
+  const [n, setN] = useState(reduce ? stat.value : 0);
+  useEffect(() => {
+    if (reduce) {
+      setN(stat.value);
+      return;
+    }
+    const controls = animate(0, stat.value, {
+      duration: 1.4,
+      ease: "easeOut",
+      onUpdate: (v) => setN(Math.round(v)),
+    });
+    return () => controls.stop();
+  }, [stat.value, reduce]);
+  return (
+    <div className="min-w-0 rounded-lg bg-base-300/60 p-3 text-center">
+      <div className="text-2xl font-extrabold text-primary tabular-nums sm:text-3xl">
+        {n}
+        {stat.suffix}
+      </div>
+      <div className="mt-1 text-xs leading-tight opacity-80 break-words">{stat.label}</div>
+    </div>
+  );
+}
 
 export default function AboutMeText(): JSX.Element {
+  const reduce = useReducedMotion() ?? false;
   const [isFirstBubbleVisible, setFirstBubbleVisible] = useState(false);
   const [isLoading, setLoading] = useState(true);
+  const [doneCount, setDoneCount] = useState(0);
 
   useEffect(() => {
     setFirstBubbleVisible(true);
-
-    const loadingTimer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-
+    const loadingTimer = setTimeout(() => setLoading(false), reduce ? 0 : 1000);
     return () => clearTimeout(loadingTimer);
-  }, []);
+  }, [reduce]);
+
+  const rise = reduce ? { opacity: 0 } : { opacity: 0, y: 20 };
 
   return (
     <motion.div
-      className="flex flex-col gap-y-4"
-      initial={{ opacity: 0, y: 20 }}
+      className="flex min-w-0 flex-col gap-y-4"
+      initial={rise}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: reduce ? 0 : 0.6, ease: "easeOut" }}
     >
-      {/* First Bubble - User Prompt */}
       <AnimatePresence>
         {isFirstBubbleVisible && (
           <motion.div
             className="chat chat-end text-left"
-            initial={{ opacity: 0, x: 30 }}
+            initial={reduce ? { opacity: 0 } : { opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 30 }}
-            transition={{ duration: 0.5, delay: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: reduce ? 0 : 0.5 }}
           >
-            <div className="chat-header text-sm md:text-xl font-extrabold">
-              You
-            </div>
-            <div className="chat-bubble text-sm md:text-xl bg-primary my-3 text-black font-bold">
-              Tell me{" "}
-              <span className="text-yellow-300 font-semibold">
-                about yourself
-              </span>
-              , Greg...
+            <div className="chat-header text-sm font-extrabold md:text-xl">You</div>
+            <div className="chat-bubble my-3 bg-primary text-sm font-bold text-black md:text-xl">
+              Tell me <span className="font-semibold text-yellow-300">about yourself</span>, Greg...
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Loading Animation */}
       <AnimatePresence>
         {isLoading && (
-          <motion.div
-            className="flex px-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0 }}
-          >
-            <motion.div
-              className="loading loading-dots loading-lg self-start"
-              animate={{ y: [0, -5, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 0.5,
-                ease: "easeInOut",
-              }}
-            />
+          <motion.div className="flex px-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0 }}>
+            <span className="loading loading-dots loading-lg self-start" role="status" aria-label="Typing" />
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Response Bubble */}
       <AnimatePresence>
         {!isLoading && isFirstBubbleVisible && (
           <motion.div
-            className="chat chat-start"
+            className="chat chat-start min-w-0"
             initial="hidden"
             animate="visible"
             exit="exit"
             variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { staggerChildren: 0.3 },
-              },
-              exit: { opacity: 0, y: 20 },
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: reduce ? 0 : 0.25 } },
+              exit: { opacity: 0 },
             }}
           >
-            <div className="chat-header text-sm md:text-xl font-extrabold">
-              Gregory
-            </div>
+            <div className="chat-header text-sm font-extrabold md:text-xl">{profile.name}</div>
 
-            <motion.div
-              className="chat-bubble text-sm md:text-lg bg-neutral text-left my-3 leading-relaxed"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-              }}
-            >
-              I am a <span className="font-bold">driven</span> and{" "}
-              <span className="font-bold">hardworking</span> individual who
-              strives to attain as much knowledge as possible and possesses the{" "}
-              <span className="font-bold">dedication to lifelong learning</span>
-              . My career journey started off as an aerospace engineer, amassing
-              a few years worth of aviation experience, armed with{" "}
-              <span className="font-bold">people management skillsets</span> and{" "}
-              <span className="font-bold">deep technical expertise</span> for a
-              large organization (Republic of Singapore Air Force).
-            </motion.div>
+            {profile.summary.map((para, i) =>
+              i <= doneCount ? (
+                <motion.div
+                  key={para.slice(0, 24)}
+                  className="chat-bubble my-3 max-w-full bg-neutral text-left text-sm leading-relaxed md:text-lg"
+                  variants={{
+                    hidden: reduce ? { opacity: 0 } : { opacity: 0, y: 20 },
+                    visible: { opacity: 1, y: 0, transition: { duration: reduce ? 0 : 0.5 } },
+                  }}
+                >
+                  <TypedText text={para} onDone={() => setDoneCount((c) => Math.max(c, i + 1))} />
+                </motion.div>
+              ) : null,
+            )}
 
+            {doneCount >= profile.summary.length && (
             <motion.div
-              className="chat-bubble text-sm md:text-lg bg-neutral text-left my-3 leading-relaxed"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.5, delay: 0.2 },
-                },
-              }}
+              className="chat-bubble my-3 max-w-full bg-neutral text-left"
+              initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: reduce ? 0 : 0.5 }}
             >
-              In 2022, I decided to pursue my unearthed passion, which is
-              developing software applications and machine learning products for
-              the betterment of our daily lives through technology. Boundaries
-              were pushed and here I am, within the Tech arm of RSAF, RAiD.
-              Equipped with an{" "}
-              <span className="font-bold">
-                arsenal of software skills (e.g., Full-Stack Web-app
-                Development)
-              </span>{" "}
-              with a substantial technical repository, I am looking to enhance
-              the current processes of the RSAF and{" "}
-              <span className="font-bold">
-                aspire to create a marriage between aviation, software
-                development, and machine learning/AI
-              </span>
-              .
+              <div className="mb-3 flex flex-wrap items-center gap-2">
+                <span className="badge badge-primary h-auto whitespace-normal py-1 text-left font-semibold">
+                  Currently: {profile.currentRole}
+                </span>
+                {profile.languages.map((l) => (
+                  <span key={l.name} className="badge badge-outline h-auto whitespace-normal py-1" title={l.level}>
+                    {l.name}
+                  </span>
+                ))}
+              </div>
+              <dl className="grid grid-cols-2 gap-2 sm:grid-cols-4" aria-label="Career highlights">
+                {stats.map((s) => (
+                  <div key={s.label} className="min-w-0">
+                    <CountUp stat={s} reduce={reduce} />
+                  </div>
+                ))}
+              </dl>
             </motion.div>
+            )}
           </motion.div>
         )}
       </AnimatePresence>

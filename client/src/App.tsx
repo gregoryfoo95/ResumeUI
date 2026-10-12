@@ -1,29 +1,16 @@
-import HomePageRoutes from "./HomePage/HomePageRoutes";
+import { Routes, Route, Navigate } from "react-router-dom";
+import HomePage from "./HomePage/HomePage";
 import InnerHomePageRoutes from "./InnerHomePage/InnerHomePageRoutes";
-import { Routes, Route } from "react-router-dom";
-import { useState, createContext } from "react";
 import "./App.css";
 
-export const HomePageVisibilityContext = createContext<React.Dispatch<
-  React.SetStateAction<boolean>
-> | null>(null);
-
+// Both routes are always registered so /Home survives a reload or a direct visit.
 function App() {
-  const [homePageVisibility, setHomePageVisibility] = useState(true);
-  console.log(homePageVisibility);
   return (
-    <HomePageVisibilityContext.Provider value={setHomePageVisibility}>
-      <Routes>
-        {homePageVisibility ? (
-          <Route path="/*" element={<HomePageRoutes />} />
-        ) : (
-          <>
-            <Route path="/*" element={<HomePageRoutes />} />
-            <Route path="/Home/*" element={<InnerHomePageRoutes />} />
-          </>
-        )}
-      </Routes>
-    </HomePageVisibilityContext.Provider>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/Home/*" element={<InnerHomePageRoutes />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
   );
 }
 

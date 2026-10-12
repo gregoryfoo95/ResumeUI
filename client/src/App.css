@@ -1,42 +1,84 @@
 #root {
-  max-width: 1280px;
+  width: 100%;
+  max-width: 100vw;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* clip (not hidden): hidden turns body into a scroll container and breaks position: sticky */
+html,
+body {
+  overflow-x: clip;
 }
 
-@keyframes logo-spin {
+.caret-blink {
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+@keyframes caret-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caret-blink {
+    animation: none;
+  }
+}
+
+.aurora-blob {
+  animation: aurora-drift 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes aurora-drift {
   from {
-    transform: rotate(0deg);
+    transform: translate3d(-6%, -4%, 0) scale(1);
   }
   to {
-    transform: rotate(360deg);
+    transform: translate3d(8%, 6%, 0) scale(1.18);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob {
+    animation: none;
   }
 }
 
-.card {
-  padding: 2em;
+@media print {
+  @page {
+    size: A4;
+    margin: 14mm;
+  }
+
+  html,
+  body,
+  #root {
+    background: #fff !important;
+    color: #000 !important;
+    max-width: none !important;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+/* Cosmetic "team" colour modes: retint DaisyUI's primary / secondary / accent. */
+:root[data-theme="forest"][data-team="blue"] {
+  --p: 199 89% 55%;
+  --pf: 199 89% 42%;
+  --pc: 199 100% 8%;
+  --s: 217 91% 62%;
+  --sf: 217 91% 48%;
+  --a: 187 85% 53%;
+  --af: 187 85% 40%;
+}
+
+:root[data-theme="forest"][data-team="red"] {
+  --p: 0 84% 60%;
+  --pf: 0 72% 46%;
+  --pc: 0 100% 8%;
+  --s: 340 80% 55%;
+  --sf: 340 75% 42%;
+  --a: 20 95% 55%;
+  --af: 20 90% 42%;
 }

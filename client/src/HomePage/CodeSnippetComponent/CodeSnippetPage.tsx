@@ -1,76 +1,54 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { codeBlockProps } from "../../@types/codeBlock";
+
 type Props = {
   codeBlock: codeBlockProps[];
   setCodeBlock?: React.Dispatch<React.SetStateAction<codeBlockProps[]>>;
 };
 
-const LONG_DELAY_FACTOR = 40;
-const SHORT_DELAY_FACTOR = 15;
+// Renders the interactive part of the shell: the y/n prompt and every command's output.
 export default function CodeSnippetPage({ codeBlock }: Props): JSX.Element {
-  const [currentLine, setCurrentLine] = useState(0);
-
-  useEffect(() => {
-    if (currentLine < codeBlock.length) {
-      const timeout = setTimeout(
-        () => {
-          setCurrentLine((prevLine) => prevLine + 1);
-        },
-        currentLine === 0
-          ? codeBlock[currentLine].code.length * LONG_DELAY_FACTOR
-          : codeBlock[currentLine].code.length * SHORT_DELAY_FACTOR,
-      );
-
-      return () => clearTimeout(timeout);
-    }
-  }, [currentLine, codeBlock]);
-
   return (
     <div>
       {codeBlock.map((line, index) => (
-        <pre key={index}>
-          {index <= currentLine && (
-            <TypeWriter
-              code={line.code}
-              prefix={line.prefix}
-              color={line.color}
-              shouldType={line.shouldType}
-            />
-          )}
-        </pre>
+        <div key={index}>
+          <TypeWriter
+            code={line.code}
+            prefix={line.prefix}
+            color={line.color}
+            shouldType={line.shouldType}
+          />
+        </div>
       ))}
     </div>
   );
 }
 
 function TypeWriter({ code, prefix, color, shouldType }: codeBlockProps) {
-  const [currentText, setCurrentText] = useState("");
-  let currentIndex = 0;
+  const [count, setCount] = useState(shouldType ? 0 : code.length);
 
   useEffect(() => {
+    if (!shouldType) return;
     const interval = setInterval(() => {
-      currentIndex++;
-      setCurrentText((prevText) => {
-        const nextText = prevText + code[currentIndex - 1];
-        if (currentIndex === code.length) {
+      setCount((c) => {
+        if (c >= code.length) {
           clearInterval(interval);
+          return c;
         }
-        return nextText;
+        return c + 1;
       });
     }, 30);
-
     return () => clearInterval(interval);
-  }, [code, currentIndex]);
+  }, [code, shouldType]);
 
+  // Hanging layout: the prompt marker gets its own column, so wrapped lines
+  // stay inside the terminal instead of relying on a negative text-indent.
   return (
-    <pre 
-      className={`${color} whitespace-pre-wrap break-words`} 
-      style={{ textIndent: "-2ch"}}
-    >
-      <code>
-        {prefix}
-        {shouldType ? currentText : code}
-      </code>
-    </pre>
+    <div className={`flex gap-2 font-mono ${color}`}>
+      <span aria-hidden="true" className="w-[2ch] flex-none select-none">
+        {prefix.trim()}
+      </span>
+      <span className="min-w-0 whitespace-pre-wrap break-words">{code.slice(0, count)}</span>
+    </div>
   );
 }

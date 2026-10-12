@@ -1,190 +1,162 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { media } from "../../data/profile";
+import type { Media } from "../../data/profile";
+import SafeLink from "../../components/SafeLink";
+import { isSafeUrl } from "../../components/isSafeUrl";
 
-interface MediaItem {
-  title: string;
-  description: string;
-  mediaType: "video" | "image";
-  mediaSrc: string;
-  mediaUrl?: string;
+const IMG_W = 800;
+const IMG_H = 533;
+const focusRing =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
+
+function youtubeId(src: string): string | null {
+  try {
+    const u = new URL(src);
+    if (u.protocol !== "https:") return null;
+    if (u.hostname !== "www.youtube-nocookie.com" && u.hostname !== "www.youtube.com") return null;
+    const m = u.pathname.match(/^\/embed\/([\w-]{6,20})$/);
+    return m ? m[1] : null;
+  } catch {
+    return null;
+  }
 }
 
-const mediaCoverage: MediaItem[] = [
-  {
-    title: "Exercise Wallaby 2024 - Youtube",
-    description:
-      "I had the privilege of being interviewed by the RSAF media team regarding my work in rapid software development within the RSAF. It was an insightful experience sharing my thoughts on the importance of agility in the defense industry.",
-    mediaType: "video",
-    mediaSrc: "https://www.youtube.com/embed/v-i3PYCUTPo",
-  },
-  {
-    title: "Exercise Wallaby 2024 - LinkedIn",
-    description:
-      "I had the privilege of being interviewed by the RSAF media team regarding my work in rapid software development within the RSAF. It was an insightful experience sharing my thoughts on the importance of agility in the defense industry.",
-    mediaType: "image",
-    mediaSrc: "images/xwb.jpeg",
-    mediaUrl:
-      "https://www.linkedin.com/feed/update/urn:li:activity:7260626815856058368/",
-  },
-  {
-    title: "CCIS Showcase on Straits Times",
-    description: "Brief introduction to CCIS development in the RSAF.",
-    mediaType: "image",
-    mediaSrc: "images/ccis.jpeg",
-    mediaUrl:
-      "https://www.straitstimes.com/singapore/ai-data-analytics-improve-decision-making-process-but-human-touch-still-key-at-saf-exercise",
-  },
-];
+// Nothing from YouTube loads until the user clicks play.
+function VideoPoster({ item }: { item: Media }): JSX.Element {
+  const [playing, setPlaying] = useState(false);
+  const id = youtubeId(item.src);
+  if (!id) return <p className="mt-4 text-sm opacity-70">Video unavailable.</p>;
+  return (
+    <div className="mt-4 aspect-video w-full overflow-hidden rounded-lg bg-black">
+      {playing ? (
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
+          title={item.title}
+          className="h-full w-full"
+          sandbox="allow-scripts allow-same-origin allow-presentation"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allow="encrypted-media; picture-in-picture; fullscreen"
+          allowFullScreen
+          loading="lazy"
+        />
+      ) : (
+        <button
+          type="button"
+          onClick={() => setPlaying(true)}
+          className={`group flex h-full w-full flex-col items-center justify-center gap-3 bg-gradient-to-br from-neutral to-black p-4 text-center ${focusRing}`}
+          aria-label={`Play video: ${item.title}`}
+        >
+          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-black transition-transform group-hover:scale-110 motion-reduce:transition-none">
+            <svg viewBox="0 0 24 24" className="ml-1 h-8 w-8" fill="currentColor" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+          <span className="text-sm font-semibold">Click to play</span>
+          <span className="text-xs opacity-70">Loads from YouTube (privacy-enhanced) only when you press play</span>
+        </button>
+      )}
+    </div>
+  );
+}
+
+function ImageCard({ item }: { item: Media }): JSX.Element {
+  const [failed, setFailed] = useState(false);
+  if (failed) return <></>;
+  const img = (
+    <img
+      src={item.src.startsWith("/") ? item.src : `/${item.src}`}
+      alt={`${item.title} screenshot`}
+      width={IMG_W}
+      height={IMG_H}
+      loading="lazy"
+      decoding="async"
+      onError={() => setFailed(true)}
+      className="h-auto w-full rounded-lg object-cover transition-opacity duration-200 hover:opacity-80 motion-reduce:transition-none"
+    />
+  );
+  return isSafeUrl(item.url) ? (
+    <SafeLink href={item.url} className={`mt-4 block rounded-lg ${focusRing}`} aria-label={`${item.title} (opens in a new tab)`}>
+      {img}
+    </SafeLink>
+  ) : (
+    <div className="mt-4">{img}</div>
+  );
+}
 
 export default function MediaCoverage(): JSX.Element {
+  const reduce = useReducedMotion() ?? false;
   const [showContent, setShowContent] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setShowContent(true);
-    const timer = setTimeout(() => setLoading(false), 1000);
+    const timer = setTimeout(() => setLoading(false), reduce ? 0 : 1000);
     return () => clearTimeout(timer);
-  }, []);
+  }, [reduce]);
+
+  const dur = reduce ? 0 : 0.5;
 
   return (
     <motion.div
-      className="flex flex-col gap-y-4"
-      initial={{ opacity: 0, y: 20 }}
+      className="flex min-w-0 flex-col gap-y-4"
+      initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: reduce ? 0 : 0.6, ease: "easeOut" }}
     >
-      {/* User Prompt */}
       <AnimatePresence>
         {showContent && (
           <motion.div
             className="chat chat-end text-left"
-            initial={{ opacity: 0, x: 30 }}
+            initial={reduce ? { opacity: 0 } : { opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 30 }}
-            transition={{ duration: 0.5, delay: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: dur }}
           >
-            <div className="chat-header text-sm md:text-xl font-extrabold">
-              You
-            </div>
-            <div className="chat-bubble text-sm md:text-lg bg-primary my-3 text-black font-bold">
-              Have you been featured in any{" "}
-              <span className="text-yellow-300 font-semibold">
-                media coverage
-              </span>
-              ?
+            <div className="chat-header text-sm font-extrabold md:text-xl">You</div>
+            <div className="chat-bubble my-3 bg-primary text-sm font-bold text-black md:text-lg">
+              Have you been featured in any <span className="font-semibold text-yellow-300">media coverage</span>?
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Loading Animation */}
       <AnimatePresence>
         {loading && (
-          <motion.div
-            className="flex justify-start px-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0 }}
-          >
-            <motion.div
-              className="loading loading-dots loading-lg self-start"
-              animate={{ y: [0, -5, 0] }}
-              transition={{
-                repeat: Infinity,
-                duration: 0.5,
-                ease: "easeInOut",
-              }}
-            />
+          <motion.div className="flex justify-start px-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0 }}>
+            <span className="loading loading-dots loading-lg self-start" role="status" aria-label="Typing" />
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Media Coverage List */}
       <AnimatePresence>
         {!loading && showContent && (
           <motion.div
-            className="chat chat-start"
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={{
-              hidden: { opacity: 0, y: 20 },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: { staggerChildren: 0.2 },
-              },
-              exit: { opacity: 0, y: 20 },
-            }}
+            className="chat chat-start min-w-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: dur }}
           >
-            <div className="chat-header text-sm md:text-xl font-extrabold">
-              Gregory
-            </div>
-
-            <motion.div
-              className="chat-bubble text-sm md:text-lg bg-neutral text-left my-3 p-4 rounded-lg shadow-md"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              <p>
-                I have had the privilege of being featured in various media
-                outlets, sharing my journey in software engineering, and defense
-                technology innovations. Here are some highlights:
-              </p>
-
-              <motion.div className="mt-4 space-y-6">
-                {mediaCoverage.map((media, index) => (
-                  <motion.div
-                    key={index}
-                    className="bg-gray-100 rounded-lg p-4 shadow-md"
-                    initial={{ opacity: 0, y: 20 }}
+            <div className="chat-header text-sm font-extrabold md:text-xl">Gregory</div>
+            <div className="chat-bubble my-3 max-w-full rounded-lg bg-neutral p-3 text-left text-sm shadow-md sm:p-4 md:text-lg">
+              <p>Here are some highlights of media coverage and features:</p>
+              <ul className="mt-4 space-y-6">
+                {media.map((item, index) => (
+                  <motion.li
+                    key={item.title}
+                    className="min-w-0 rounded-lg bg-base-100 p-3 shadow-md sm:p-4"
+                    initial={reduce ? { opacity: 0 } : { opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                    transition={{ duration: dur, delay: reduce ? 0 : index * 0.2 }}
                   >
-                    <h3 className="text-lg font-bold text-indigo-600">
-                      {media.title}
-                    </h3>
-                    <p className="text-sm text-gray-700 mt-2">
-                      {media.description}
-                    </p>
-
-                    {/* Media Type Handling */}
-                    {media.mediaType === "image" ? (
-                      <a
-                        href={media.mediaUrl || "#"}
-                        target={media.mediaUrl ? "_blank" : ""}
-                        rel="noopener noreferrer"
-                        className="block mt-4"
-                      >
-                        <motion.img
-                          src={media.mediaSrc}
-                          alt={media.title}
-                          className="w-full h-56 object-cover rounded-lg hover:opacity-80 transition-opacity duration-200"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.6 }}
-                          onError={(e) =>
-                            (e.currentTarget.style.display = "none")
-                          }
-                        />
-                      </a>
-                    ) : (
-                      <motion.iframe
-                        src={media.mediaSrc}
-                        title={media.title}
-                        className="w-full h-56 rounded-lg mt-4"
-                        allowFullScreen
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.6 }}
-                      />
-                    )}
-                  </motion.div>
+                    <h3 className="break-words text-base font-bold text-primary sm:text-lg">{item.title}</h3>
+                    <p className="mt-2 text-sm opacity-80">{item.description}</p>
+                    {item.type === "video" ? <VideoPoster item={item} /> : <ImageCard item={item} />}
+                  </motion.li>
                 ))}
-              </motion.div>
-            </motion.div>
+              </ul>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

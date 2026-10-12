@@ -3,6 +3,11 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Montserrat", "sans-serif"],
+        // System monospace stack (CSP only allows Google Fonts for webfonts).
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Consolas", "Liberation Mono", "monospace"],
+      },
       screens: {
         "3xs": "320px",
         "2xs": "375px",
@@ -20,9 +25,6 @@ export default {
       animation: {
         "slide-in-and-out": "slide-in-and-out 4s linear",
       },
-    },
-    fontFamily: {
-      sans: ["Montserrat", "sans-serif"],
     },
   },
   daisyui: {
